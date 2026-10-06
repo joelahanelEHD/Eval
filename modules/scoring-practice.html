@@ -1,0 +1,616 @@
+<title>Mentor Scoring Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one reading column, like an observation packet; each scenario is a "case file" with the rating form directly under its evidence. */
+:root {
+  --paper: #f3f5f8;
+  --surface: #ffffff;
+  --sunk: #eaeef3;
+  --ink: #1b2430;
+  --muted: #586374;
+  --line: #d6dce4;
+  --accent: #23578a;
+  --accent-soft: #e2ecf6;
+  --on-accent: #ffffff;
+  --lvl-n: #6d7684;
+  --lvl-u: #a8412c;
+  --lvl-d: #9a6a0c;
+  --lvl-p: #23744f;
+  --lvl-e: #4a47a3;
+  --font-display: "Literata", Georgia, "Times New Roman", serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --radius: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12161c; --surface: #19202a; --sunk: #222a35; --ink: #e5e9ef; --muted: #9ba6b5;
+    --line: #2f3946; --accent: #82b4e3; --accent-soft: #1e3044; --on-accent: #0e1620;
+    --lvl-n: #9aa3b0; --lvl-u: #e88a75; --lvl-d: #e0b04f; --lvl-p: #6fcc9f; --lvl-e: #a9a6f2;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12161c; --surface: #19202a; --sunk: #222a35; --ink: #e5e9ef; --muted: #9ba6b5;
+  --line: #2f3946; --accent: #82b4e3; --accent-soft: #1e3044; --on-accent: #0e1620;
+  --lvl-n: #9aa3b0; --lvl-u: #e88a75; --lvl-d: #e0b04f; --lvl-p: #6fcc9f; --lvl-e: #a9a6f2;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 16px/1.6 var(--font-body);
+  padding: 0 16px;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 40px 80px; display: flex; flex-direction: column; gap: 32px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 650; line-height: 1.2; text-wrap: balance; margin: 0; }
+h1 { font-size: 2.1rem; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.1rem; }
+p { margin: 0; }
+.eyebrow { font: 500 0.75rem/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* header */
+header.top { display: flex; flex-direction: column; gap: 10px; }
+.draft { align-self: flex-start; font: 500 0.75rem/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase;
+  border: 1px dashed var(--lvl-d); color: var(--lvl-d); padding: 6px 8px; border-radius: 4px; }
+
+/* scale */
+details.guide { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+details.guide > summary { padding: 14px 18px; font-weight: 700; cursor: pointer; list-style-position: inside; }
+.guide-body { padding: 0 18px 18px; display: flex; flex-direction: column; gap: 16px; }
+.scale { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.scale div { border-top: 4px solid var(--c); background: var(--sunk); padding: 10px 12px; border-radius: 0 0 4px 4px; font-size: 0.9rem; }
+.scale b { display: block; color: var(--c); }
+.guide ul { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 6px; }
+
+/* tabs + progress */
+.bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--paper); padding-block: 10px; border-bottom: 1px solid var(--line); }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.tab { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 0.92rem; }
+.tab[aria-selected="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.tab .code { font-family: var(--font-mono); margin-right: 6px; }
+.progress { font-size: 0.88rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.progress b { color: var(--ink); }
+
+/* item header */
+.item-head { display: flex; flex-direction: column; gap: 8px; }
+.item-head blockquote { margin: 0; padding: 12px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 4px 4px 0; }
+.why { font-size: 0.92rem; }
+
+/* scenario */
+article.case { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.case-head { padding: 18px 20px 14px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 0.78rem; padding: 3px 9px; border-radius: 999px; background: var(--sunk); color: var(--muted); }
+.chip.kind { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.case-body { padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; }
+.case-body p { max-width: 65ch; }
+.transcript { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; background: var(--sunk); padding: 14px 16px; border-radius: 4px; font-size: 0.95rem; }
+.transcript dt { font: 500 0.78rem/1.9 var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.transcript dd { margin: 0; min-width: 0; }
+.transcript .stage { grid-column: 1 / -1; font-style: italic; color: var(--muted); font-size: 0.9rem; }
+.log { display: flex; flex-direction: column; border-left: 2px solid var(--line); margin-left: 4px; }
+.log div { padding: 4px 0 10px 16px; position: relative; }
+.log div::before { content: ""; position: absolute; left: -6px; top: 12px; width: 10px; height: 10px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent); }
+.log time { display: block; font: 500 0.78rem/1.6 var(--font-mono); color: var(--muted); }
+.artifact { border: 1px solid var(--line); border-radius: 4px; background: var(--paper); padding: 14px 16px; font-size: 0.93rem; display: flex; flex-direction: column; gap: 8px; }
+.artifact .doc-title { font-family: var(--font-display); font-weight: 650; }
+.artifact ol, .artifact ul { margin: 0; padding-left: 1.3em; }
+.note { font-size: 0.93rem; background: var(--sunk); padding: 10px 14px; border-radius: 4px; }
+.note b { font-weight: 700; }
+
+/* rating form */
+fieldset.rate { border: 0; border-top: 1px solid var(--line); margin: 0; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+fieldset.rate legend { font-weight: 700; padding: 0; margin-bottom: 8px; float: left; width: 100%; }
+.opt { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; align-items: start; border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; cursor: pointer; }
+.opt input { margin: 4px 0 0; accent-color: var(--accent); width: 18px; height: 18px; }
+.opt .lvl { font-weight: 700; color: var(--c); }
+.opt .lvl small { font-weight: 400; color: var(--muted); margin-left: 6px; }
+.opt .desc { grid-column: 2; font-size: 0.9rem; color: var(--muted); }
+.opt:has(input:checked) { border-color: var(--c); box-shadow: inset 4px 0 0 var(--c); }
+.opt.is-anchor { border-color: var(--c); box-shadow: inset 4px 0 0 var(--c); background: var(--sunk); }
+.opt.is-anchor .lvl::after { content: "Anchor rating"; margin-left: 8px; font: 500 0.7rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--surface); background: var(--c); padding: 3px 6px; border-radius: 3px; vertical-align: 2px; }
+fieldset[disabled] .opt { cursor: default; }
+.evidence label { font-weight: 600; font-size: 0.9rem; display: block; margin: 6px 0 4px; }
+.evidence textarea { width: 100%; min-height: 70px; font: inherit; font-size: 0.93rem; padding: 8px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); resize: vertical; }
+.actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.btn { background: var(--accent); color: var(--on-accent); border: 0; padding: 10px 18px; border-radius: 4px; font-weight: 700; }
+.btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--line); font-weight: 600; }
+
+/* feedback */
+.feedback { border-top: 1px solid var(--line); padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 14px; background: var(--sunk); }
+.verdict { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: baseline; }
+.verdict .tag { font: 500 0.75rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; padding: 5px 8px; border-radius: 3px; color: var(--surface); background: var(--c); }
+.feedback h4 { margin: 0 0 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-family: var(--font-body); }
+.feedback ul { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 4px; }
+.feedback .comment { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 10px 14px; font-size: 0.93rem; }
+
+/* summary */
+.summary { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+.tally { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.tally div { background: var(--sunk); border-radius: 4px; padding: 10px 12px; }
+.tally b { display: block; font: 650 1.5rem/1.2 var(--font-display); font-variant-numeric: tabular-nums; }
+.tally span { font-size: 0.85rem; color: var(--muted); }
+footer { font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+
+@media (max-width: 520px) {
+  h1 { font-size: 1.7rem; }
+  .transcript { grid-template-columns: 1fr; gap: 0 0; }
+  .transcript dd { margin-bottom: 8px; }
+  .case-head, .case-body, fieldset.rate, .feedback { padding-left: 14px; padding-right: 14px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .feedback { animation: rise 0.25s ease-out; }
+  @keyframes rise { from { transform: translateY(4px); opacity: 0.6; } to { transform: none; opacity: 1; } }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="eyebrow">Internship Evaluation · Mentor Calibration · Module 1</span>
+    <h1>Mentor Scoring Practice</h1>
+    <p>Read each scenario, choose the rating you would enter in Anthology Portfolio, and note the evidence you used. Then check your rating against the anchor and read the reasoning.</p>
+    <span class="draft">Draft anchors · pending faculty review</span>
+  </header>
+
+  <details class="guide" id="guide" open>
+    <summary>Before you begin: how the scale works</summary>
+    <div class="guide-body">
+      <div class="scale">
+        <div style="--c: var(--lvl-u)"><b>Unacceptable</b>Rarely / Never. Consistently below the standard.</div>
+        <div style="--c: var(--lvl-d)"><b>Developing</b>Inconsistently. Needs more support than a typical first-year teacher.</div>
+        <div style="--c: var(--lvl-p)"><b>Proficient</b>Consistently. Needs only the support a first-year teacher gets. This is the program target.</div>
+        <div style="--c: var(--lvl-e)"><b>Exemplary</b>Model for colleagues. Considerably surpasses a first-year teacher.</div>
+      </div>
+      <ul>
+        <li><b>Rate the evidence against the descriptor, not against the calendar.</b> Developing is expected at midterm, but a midterm candidate who meets the Proficient descriptor earns Proficient, and a final-evaluation candidate who doesn't, doesn't.</li>
+        <li><b>Look for the words that separate levels.</b> On most items the jump from Developing to Proficient is about <i>consistency</i>, and the jump to Exemplary adds something new, often students taking ownership.</li>
+        <li><b>Exemplary is a high bar.</b> Ask: would I send a colleague to watch this candidate do it? Candidates are not expected to be Exemplary in most areas.</li>
+        <li><b>Watch for "equitably."</b> Several descriptors require that the practice reaches all students. Uneven treatment can hold a rating down even when the strategy is good.</li>
+        <li><b>Use "No Opportunity to Observe" only when you truly saw nothing</b> related to the item.</li>
+      </ul>
+      <p class="muted" style="font-size:0.9rem">Why this matters: in 2026, mentors and clinical coaches were usually within one level of each other, but exact agreement was close to chance on items like Instructional Dialogue and Expectations for Student Behavior. Mentors also rated higher than coaches on average, most of all in Instructional Delivery.</p>
+    </div>
+  </details>
+
+  <div class="bar">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="progress" id="progress" aria-live="polite"></div>
+  </div>
+
+  <main id="main" class="stack" style="gap:24px"></main>
+
+  <footer>
+    Scenarios are fictional and written for training. Rubric language is quoted from the Internship Evaluation (updated 2026). Your ratings stay in this browser only; nothing is sent anywhere.
+    <div class="actions" style="margin-top:10px"><button class="btn ghost" id="reset" type="button">Clear my ratings</button><span id="reset-msg" class="muted"></span></div>
+  </footer>
+</div>
+
+<script>
+const LEVELS = [
+  { key: "N", name: "No Opportunity to Observe", short: "", color: "--lvl-n", rank: null },
+  { key: "U", name: "Unacceptable", short: "Rarely/Never", color: "--lvl-u", rank: 1 },
+  { key: "D", name: "Developing", short: "Inconsistently", color: "--lvl-d", rank: 2 },
+  { key: "P", name: "Proficient", short: "Consistently", color: "--lvl-p", rank: 3 },
+  { key: "E", name: "Exemplary", short: "Model for Colleagues", color: "--lvl-e", rank: 4 }
+];
+const lvl = k => LEVELS.find(l => l.key === k);
+
+/* ---------- Module content. Add items/scenarios here to scale up. ---------- */
+const ITEMS = [
+  {
+    code: "G",
+    domain: "Instructional Delivery",
+    name: "Instructional Dialogue",
+    stem: "The candidate balances student and teacher dialogue, creating opportunities for extended dialogue among students. Students freely initiate questions and commentary.",
+    why: "Exact mentor–coach agreement on this item was near zero in 2026, and Instructional Delivery had the largest gap between mentor and coach ratings.",
+    descriptors: {
+      N: "There was no opportunity to observe tasks related to this criterion.",
+      U: "The candidate does not balance student and teacher dialogue. Instructional activities are dominated by teacher talk, and there are limited discussions.",
+      D: "The candidate uses some facilitation strategies that encourage student dialogue, but they may be brief, inconsistent, or ineffective at consistently engaging students in extended dialogues.",
+      P: "The candidate consistently uses strategies (e.g., open-ended questions, grouping structures) that cause students to take an active role in classroom dialogue.",
+      E: "The candidate uses strategies to facilitate frequent, content-driven discussions between teachers and students and among students. Students freely initiate questions and commentaries, as well as engage in extended conversations."
+    },
+    scenarios: [
+      {
+        id: "G1", title: "Why did the bean grow pale?",
+        grade: "Grade 3", subject: "Science", kind: "Classroom vignette", when: "Internship I · Final",
+        body: [
+          { t: "p", text: "Ms. Alvarez opens a lesson on plant needs by asking, “What do seeds need to grow?” Four students raise their hands. She calls on two, repeats each answer (“Water, good. Sunlight, yes.”), and writes them on chart paper. She then teaches from her slides for about 12 minutes." },
+          { t: "p", text: "Midway through, she says, “Turn and talk to your partner: why do you think the bean we kept in the closet grew tall and pale?” Pairs talk for about 40 seconds. Several pairs are animated. One student says to her partner, “Maybe it was stretching to find the light!” Ms. Alvarez rings the chime and asks, “Who can tell me the answer?” One student answers. She says, “Right, it needs light,” and moves to the worksheet." },
+          { t: "p", text: "During the worksheet, Jaylen asks, “Do plants that live in caves grow like that too?” Ms. Alvarez says, “Great question, let’s hold that for later.” The question isn’t revisited." },
+          { t: "note", label: "Mentor’s context", text: "This is typical of her lessons this month. Turn-and-talks now show up in most lessons, but they are short and the share-out goes back through her." }
+        ],
+        anchor: "D",
+        rationale: "Ms. Alvarez is using a facilitation strategy (turn-and-talk) regularly, which moves her past Unacceptable. But the talk is brief, the share-out turns back into teacher question / one student answer, and a student-initiated question is set aside. That matches “brief, inconsistent, or ineffective at consistently engaging students in extended dialogues.”",
+        evidence: [
+          "Turn-and-talk used, and the mentor says it now appears in most lessons.",
+          "Partner talk lasted about 40 seconds before the chime.",
+          "Share-out asked for “the answer” and took one response.",
+          "Jaylen’s question (“Do plants in caves…?”) was deferred and dropped."
+        ],
+        notUp: "Proficient requires strategies that cause students to take an active role in classroom dialogue. Here the students’ ideas never become the discussion; the candidate collects one right answer and moves on.",
+        notDown: "Unacceptable means teacher talk dominates with limited discussion and no real strategy. She plans and uses a strategy, and students do talk to each other, just not for long.",
+        comment: "You’re building turn-and-talks into most lessons, and students are eager to use them. Next step: give pairs more time and replace “Who can tell me the answer?” with “What did your partner say?” or “Who wants to add on?” Questions like Jaylen’s are a chance to open a class discussion."
+      },
+      {
+        id: "G2", title: "Book clubs and question cards",
+        grade: "Grade 5", subject: "English Language Arts", kind: "Mentor notes over two weeks", when: "Internship II · Final",
+        body: [
+          { t: "p", text: "The mentor teacher kept short notes on Ms. Okonkwo’s discussions during a novel study." },
+          { t: "log", entries: [
+            ["Mon, Mar 2", "Read-aloud. Asked, “What did Marcus want in that scene? What makes you think that?” Think-pair-share, then six pairs shared. She asked, “Who agrees or disagrees with Ana’s idea?” Two students responded to each other."],
+            ["Wed, Mar 4", "Book clubs, groups of four, with question cards she wrote. About 15 minutes of group talk. She circulated and drew in quieter students (“Dev, what’s your take?”). Groups mostly went through the cards in order."],
+            ["Fri, Mar 6", "Mini-lesson on theme. Used “stand up, hand up, pair up.” Students discussed in new pairs; she recorded their ideas on the board."],
+            ["Tue, Mar 10", "Book clubs again. Added sentence stems (“I want to build on…”, “I see it differently because…”). Students used them. One group finished the cards early and waited for her instead of continuing."],
+            ["Thu, Mar 12", "Whole-class discussion with open-ended questions. About half the class contributed. Students mostly spoke to her rather than to each other. Two students asked questions on their own: one about a vocabulary word, one about why the author switched narrators."]
+          ] }
+        ],
+        anchor: "P",
+        rationale: "Across every logged lesson, Ms. Okonkwo uses open-ended questions and grouping structures (think-pair-share, book clubs, sentence stems), and students take an active role in the talk. That is the Proficient descriptor almost word for word.",
+        evidence: [
+          "A dialogue strategy appears in all five logged lessons.",
+          "Book clubs produce about 15 minutes of student-to-student talk.",
+          "She actively includes quieter students and adds stems to deepen talk.",
+          "Students mostly address her, follow the cards in order, and wait for her when they finish."
+        ],
+        notUp: "This is the scenario where mentors most often over-rate. Exemplary asks that students freely initiate questions and commentary and sustain extended conversations among themselves. Here, discussion is still routed through the teacher and the cards; only two student-initiated questions appear in two weeks. It’s strong, consistent practice, and it is the program target. It is not yet a model for colleagues.",
+        notDown: "Developing describes strategies that are brief or inconsistent. These strategies appear every time and produce sustained student talk in book clubs.",
+        comment: "You consistently use open-ended questions, book clubs, and sentence stems, and students are active participants. To push further, try giving groups a way to keep going without you (generating their own questions after the cards) and prompting students to respond to each other in whole-class talk (“Talk to Ana, not to me”)."
+      },
+      {
+        id: "G3", title: "Two-step equations",
+        grade: "Grade 7", subject: "Mathematics", kind: "Lesson transcript", when: "Internship II · Midterm",
+        body: [
+          { t: "p", text: "Excerpt from minute 18 of a 45-minute lesson taught by Mr. Reyes." },
+          { t: "transcript", lines: [
+            ["Mr. Reyes", "So for 3x + 5 = 23, we subtract 5 from both sides. What’s 23 minus 5?"],
+            ["Students", "Eighteen."],
+            ["Mr. Reyes", "Eighteen. Then we divide by 3, which gives us…?"],
+            ["Student", "Six."],
+            ["Mr. Reyes", "x equals 6. Okay, next one."],
+            ["", "[writes 4x − 7 = 21]"],
+            ["Mr. Reyes", "First we add 7 to both sides…"],
+            ["Priya", "Why do we add first instead of dividing first?"],
+            ["Mr. Reyes", "That’s just the order we do it in. Add 7, so that’s 28. Divide by 4, and x is 7. Copy that down."]
+          ] },
+          { t: "note", label: "Mentor’s tally for the full lesson", text: "Students spoke 14 times, all one- or two-word answers to computation questions. No partner or group talk. One student question (Priya’s). The plan listed “partner practice” for the last 10 minutes, but the period ended first. The same pattern held in the three math lessons he taught this week." }
+        ],
+        anchor: "U",
+        rationale: "Teacher talk dominates the lesson, students only supply computation answers, and there is no discussion. The one student-initiated question, which was an ideal opening for discussion, is closed down. That matches “Instructional activities are dominated by teacher talk, and there are limited discussions.”",
+        evidence: [
+          "Fourteen student contributions in 45 minutes, all one- or two-word answers.",
+          "No partner or group talk took place; the planned partner practice was cut.",
+          "Priya’s “why” question was answered with “that’s just the order.”",
+          "The mentor notes the same pattern across a full week."
+        ],
+        notUp: "Developing requires that the candidate actually uses some facilitation strategies, even if they’re brief. A strategy listed in the plan but never reached is not evidence of use. If the partner practice had happened, even briefly, Developing would be defensible.",
+        notDown: "There is clear evidence to rate, so “No Opportunity to Observe” does not apply.",
+        comment: "Students are getting accurate procedural practice, but almost all the talk in your lessons is yours. Priya’s question about order of operations is exactly the kind of moment to open up: “What do the rest of you think? Would dividing first work?” Let’s plan one discussion structure into each lesson and protect the time for it.",
+        caution: "At midterm, it can feel harsh to give an Unacceptable rating, and it’s tempting to round up to Developing because the candidate is still early. Rate what you saw. Under the program’s procedure, an Unacceptable rating leads to a meeting with the mentor, coach, and instructor about support, which is the purpose of the rating."
+      },
+      {
+        id: "G4", title: "Can the testimony be trusted?",
+        grade: "Grade 10", subject: "World History", kind: "Seminar transcript + context", when: "Internship II · Final",
+        body: [
+          { t: "p", text: "Students have read excerpts of testimony given to an 1832 British parliamentary committee on child labor in textile mills. This is the third student-led seminar of the unit. The mentor notes that Mr. Brennan’s daily lessons also use paired debates, and students keep a “wonder log” of questions they bring to class." },
+          { t: "transcript", lines: [
+            ["Mr. Brennan", "Last time, Keisha asked whether this testimony can be trusted. Keep that in mind. Who wants to start?"],
+            ["Marisol", "I don’t think it can be fully trusted. The committee was trying to pass a law, so they’d pick the worst stories."],
+            ["Theo", "But does that make the stories false? They could be picked on purpose and still be true."],
+            ["Marisol", "True, but then they’re not representative."],
+            ["Aiden", "Can I ask something? How would we even check? Are there factory records?"],
+            ["Mr. Brennan", "What would you look for if there were?"],
+            ["Aiden", "Hours, maybe ages… wages."],
+            ["Keisha", "But the owners kept those records, so they’re biased the other way."],
+            ["Theo", "So we’d need both and compare them. That’s like what we did with the two strike newspapers."],
+            ["", "Mr. Brennan writes “corroboration” on the board and steps back. For the next 11 minutes students talk to each other. He speaks twice, once to invite a student who hasn’t spoken: “Lin, you were nodding. Where are you landing?”"]
+          ] }
+        ],
+        anchor: "E",
+        rationale: "Students talk to each other, build on and challenge each other’s ideas, ask their own questions (Aiden), and connect to earlier learning (Theo). The candidate’s talk is minimal and strategic. The context shows this is frequent, not a one-off: it’s the third seminar, and dialogue structures are part of daily lessons. That is the full Exemplary descriptor.",
+        evidence: [
+          "Student-to-student exchanges that build on and challenge each other (Marisol ↔ Theo, Keisha).",
+          "Student-initiated question (“How would we even check?”) taken up by the class.",
+          "Candidate turns a question back to students instead of answering it.",
+          "Eleven minutes of student-led talk with two brief, purposeful teacher moves.",
+          "Frequency: third seminar of the unit, plus daily discussion routines and wonder logs."
+        ],
+        notUp: "Exemplary is the top of the scale.",
+        notDown: "Proficient describes students taking an active role. Here students go further: they freely initiate questions and sustain extended conversations among themselves, and it happens frequently. You could send a colleague to watch this routine.",
+        comment: "Your seminars are a model of student-led dialogue: students question sources, challenge each other respectfully, and connect to prior learning while you step back. Consider sharing this structure with the department.",
+        caution: "One great seminar by itself is not enough for Exemplary. The descriptor says “frequent.” If you had seen only this seminar and no other evidence of routine dialogue, Proficient would be the safer rating, with a comment noting the strong seminar."
+      }
+    ]
+  },
+  {
+    code: "P",
+    domain: "Learning Environment",
+    name: "Expectations for Student Behavior",
+    stem: "The candidate establishes a climate conducive to learning by setting and consistently enforcing clear expectations for student behavior.",
+    why: "Exact mentor–coach agreement on this item was near zero in 2026. Mentors see the daily routines that coaches often miss, so mentor evidence here is especially valuable.",
+    descriptors: {
+      N: "There was no opportunity to observe tasks related to this criterion.",
+      U: "The candidate does not establish expectations for student behavior. The candidate inconsistently enforces rules and behavioral expectations.",
+      D: "The candidate establishes expectations for student behavior, but they may be unclear and/or inconsistently enforced.",
+      P: "The candidate establishes clear expectations for student behavior equitably and consistently enforces those expectations.",
+      E: "The candidate involves students in identifying, establishing, and reviewing clear expectations for student behavior. The candidate equitably and consistently enforces those expectations."
+    },
+    scenarios: [
+      {
+        id: "P1", title: "Voice levels and carpet time",
+        grade: "Kindergarten", subject: "Literacy block", kind: "Mentor notes over one week", when: "Internship II · Midterm",
+        body: [
+          { t: "p", text: "Ms. Nguyen took over the morning literacy block this week. The mentor kept notes." },
+          { t: "log", entries: [
+            ["Monday", "Introduced a “voice level” chart (0–3) and three carpet expectations: eyes on speaker, hands in lap, wait for a turn. She modeled each one, had two students demonstrate, and the class practiced moving from tables to carpet twice."],
+            ["Tuesday", "Before each transition she named the expectation (“Walking feet, level 0 to the carpet”). When students got loud at tables, she pointed to the chart and said “Level 1 at tables,” calmly, every time."],
+            ["Wednesday", "Corrected Leo (often redirected) and Ava (rarely redirected) for the same thing, calling out during the read-aloud, with the same words and the same reminder of “wait for a turn.” Specific praise for students meeting expectations (“Sam is showing me hands in lap”)."],
+            ["Thursday", "Carpet transition took under a minute without prompting from me. Two students reminded a classmate of the voice level by pointing at the chart."],
+            ["Friday", "Substitute aide in the room; Ms. Nguyen held the same expectations and signals. The expectations were ones she and I wrote together during planning; students haven’t been part of creating or reviewing them yet."]
+          ] }
+        ],
+        anchor: "P",
+        rationale: "Expectations are clear, explicitly taught, practiced, and enforced the same way for every student, all week and even with a change in adults. That is “establishes clear expectations for student behavior equitably and consistently enforces those expectations.”",
+        evidence: [
+          "Expectations explicitly taught, modeled, and practiced on day one.",
+          "Same signal and wording used every time (the voice-level chart).",
+          "Equitable enforcement: Leo and Ava corrected identically.",
+          "Routines are holding by Thursday and Friday."
+        ],
+        notUp: "Exemplary adds involving students in identifying, establishing, and reviewing the expectations. The mentor notes that students had no role in creating or reviewing them. With kindergarteners, that could look like a class discussion of “what does a good listener look like?” or a weekly check on how the class is doing.",
+        notDown: "Nothing here is unclear or inconsistently enforced, so Developing would understate the evidence.",
+        comment: "Your expectations are clear, taught explicitly, and enforced the same way for every student; the carpet routine is already running smoothly. A next step toward student ownership: have students help review the voice-level chart at the end of each week.",
+        caution: "This is a midterm evaluation, and Developing is the typical midterm rating. That does not cap the rating. When the evidence meets the Proficient descriptor, rate Proficient."
+      },
+      {
+        id: "P2", title: "Fraction tiles",
+        grade: "Grade 4", subject: "Mathematics", kind: "Classroom vignette", when: "Internship II · Midterm",
+        body: [
+          { t: "p", text: "Ms. Harper introduces fraction tiles to the whole class. She passes out a bag to each pair and says, “Have fun exploring, then we’ll compare fractions.” She doesn’t state how the tiles should be used, how partners should share them, or what to do when finished." },
+          { t: "p", text: "Within a few minutes, several pairs are building towers and two tiles are thrown across a table. Ms. Harper says “Guys…” twice to the room, then sits with the front table to teach comparing fractions. Noise rises. She tells Marcus, who is tapping tiles on his desk, to go stand in the hallway. Two students next to him doing the same thing are not addressed. After 15 minutes the mentor steps in to reset the class." },
+          { t: "note", label: "Debrief and mentor context", text: "In the debrief, Ms. Harper says, “They knew how to behave. They’re fourth graders.” The mentor suggested two weeks ago that she teach expectations before using materials; that hasn’t happened in her lessons since." }
+        ],
+        anchor: "U",
+        rationale: "No expectations were set for the materials or partner work, responses to misbehavior were inconsistent, and one student was removed while others doing the same thing were not. The pattern continued after earlier feedback. That matches “does not establish expectations… inconsistently enforces rules and behavioral expectations.”",
+        evidence: [
+          "No expectations given for tiles, partners, or finishing early.",
+          "Vague, whole-room “Guys…” instead of a specific redirection.",
+          "Marcus sent out; two classmates doing the same thing not addressed.",
+          "Mentor had to step in to reset the class.",
+          "Same pattern after the mentor’s suggestion two weeks earlier."
+        ],
+        notUp: "Developing requires that expectations are established, even if unclear or unevenly enforced. Here none were set, and the candidate does not yet see setting them as her job (“They knew how to behave”).",
+        notDown: "There is plenty of evidence, so “No Opportunity to Observe” does not apply.",
+        comment: "Before using hands-on materials, students need explicit expectations for how to use them, share them, and what to do when finished. Enforcement also needs to be the same for every student; Marcus was removed for something his tablemates were also doing. Let’s co-plan the launch of your next materials-based lesson.",
+        caution: "Watch for the equity issue here. Removing one student for behavior others are also showing is exactly what “equitably” in the higher descriptors is meant to catch."
+      },
+      {
+        id: "P3", title: "Density lab, day one",
+        grade: "Grade 8", subject: "Physical Science", kind: "Classroom vignette", when: "Internship I · Final",
+        body: [
+          { t: "p", text: "Mr. Castillo opens a density lab with a slide of lab safety rules: goggles on whenever liquids are out, no tasting, clean your station before you leave. He reads each one aloud. Then he says, “Grab your stuff and get started.” Most of the class crowds the supply table at once." },
+          { t: "p", text: "During the lab, he reminds one table twice to put goggles on. At another table, a group of strong, on-task students has goggles pushed up on their foreheads for about 10 minutes; he doesn’t address it. Later, he deducts lab points from a third table for the same goggle issue." },
+          { t: "p", text: "With two minutes left he says, “Clean up!” Several stations are left wet and two graduated cylinders are left out." },
+          { t: "note", label: "Debrief", text: "Mr. Castillo says, “I know I need to be more consistent. I didn’t want to stop that group because they were working so well.”" }
+        ],
+        anchor: "D",
+        rationale: "Safety expectations were clearly established, but expectations for transitions and cleanup were unclear, and enforcement was inconsistent and uneven across groups. That matches “establishes expectations… but they may be unclear and/or inconsistently enforced.”",
+        evidence: [
+          "Safety rules explicitly stated and reviewed.",
+          "No expectation for getting materials (“Grab your stuff”) led to crowding.",
+          "Goggle rule enforced with two tables, ignored for the high-performing group.",
+          "Late, vague cleanup direction; stations left wet.",
+          "Candidate recognizes the inconsistency in the debrief."
+        ],
+        notUp: "Proficient requires clear expectations that are equitably and consistently enforced. Letting one group skip goggles while penalizing another for the same thing fails both “consistently” and “equitably.”",
+        notDown: "Unacceptable means expectations are not established. Here, safety expectations were set and partly enforced, and the candidate is aware of the gap.",
+        comment: "You set clear safety expectations, and you named the consistency issue yourself in our debrief. Next steps: give step-by-step directions for getting materials and cleaning up, and hold every group to the goggle rule, including groups that are working well. Students notice when rules apply to some and not others."
+      },
+      {
+        id: "P4", title: "Community agreements",
+        grade: "Grade 11", subject: "English", kind: "Candidate artifact + observation", when: "Internship II · Final",
+        body: [
+          { t: "p", text: "Ms. Patel shared the document below, which her class co-wrote in the first week of the semester and revisits monthly." },
+          { t: "artifact", title: "Period 3 Community Agreements (revised Nov. 3)", html: "<ol><li>Disagree with ideas, not people.</li><li>Step up, step back: if you’ve spoken twice, invite someone new.</li><li>Phones in the caddy during discussion; out during independent work only if you’re using them for the task.</li><li><s>No side conversations.</s> Side conversations are okay if they’re about the text and quiet. <i>(Revised by class vote, Nov. 3)</i></li><li>Come in, check the board, start the warm-up.</li></ol><p class=\"muted\">Monthly check-in: students rate how well the class is keeping each agreement (1–4) and propose changes. October average: 3.2. Lowest-rated: #2.</p>" },
+          { t: "p", text: "During an observed discussion, a student talking for a third time stops himself: “Okay, step back, someone else.” Ms. Patel quietly reminds two students about phones, one a frequent participant and one who rarely speaks, using the same words and the agreement number. Students start the warm-up on entry without prompting." },
+          { t: "note", label: "Mentor’s context", text: "This has held all semester. When the check-in showed #2 was weakest, she taught a mini-lesson on inviting others in and the class tracked it for two weeks." }
+        ],
+        anchor: "E",
+        rationale: "Students helped identify and establish the agreements, review them monthly with data, and revise them. The candidate enforces them the same way for every student, and students now hold each other to them. That is every element of the Exemplary descriptor.",
+        evidence: [
+          "Agreements co-written by students (identifying and establishing).",
+          "Monthly student check-in, and a class-voted revision (reviewing).",
+          "The candidate acted on review data with a mini-lesson.",
+          "Same reminder to a frequent and a reluctant participant (equitable).",
+          "Students self-regulate using the agreements' language."
+        ],
+        notUp: "Exemplary is the top of the scale.",
+        notDown: "Proficient covers clear, consistently and equitably enforced expectations. What lifts this to Exemplary is student involvement in identifying, establishing, and especially reviewing the expectations over time.",
+        comment: "Your community agreements process, with co-creation, monthly review, and a class-voted revision, is a model for colleagues. Students hold each other to the agreements, and you enforce them evenly.",
+        caution: "Co-writing norms in week one is common, and by itself it isn’t Exemplary. Look for evidence that students keep reviewing the expectations and that enforcement stays consistent and equitable."
+      }
+    ]
+  }
+];
+
+/* ---------- State (per browser, optional) ---------- */
+const STORE_KEY = "mentor-scoring-practice-v1";
+let state = { tab: "G", ratings: {}, notes: {} };
+try { const s = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); if (s) state = Object.assign(state, s); } catch (e) {}
+function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
+
+const el = (tag, attrs = {}, ...kids) => {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") n.className = v;
+    else if (k === "html") n.innerHTML = v;
+    else if (k === "style") n.setAttribute("style", v);
+    else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
+    else if (v !== false && v != null) n.setAttribute(k, v === true ? "" : v);
+  }
+  for (const k of kids.flat()) if (k != null) n.append(k.nodeType ? k : document.createTextNode(k));
+  return n;
+};
+
+function renderBlock(b) {
+  if (b.t === "p") return el("p", {}, b.text);
+  if (b.t === "note") return el("div", { class: "note" }, el("b", {}, b.label + ": "), b.text);
+  if (b.t === "transcript") {
+    const dl = el("dl", { class: "transcript" });
+    b.lines.forEach(([who, what]) => {
+      if (!who) dl.append(el("div", { class: "stage" }, what));
+      else dl.append(el("dt", {}, who), el("dd", {}, what));
+    });
+    return el("div", { style: "overflow-x:auto" }, dl);
+  }
+  if (b.t === "log") return el("div", { class: "log" }, b.entries.map(([d, txt]) => el("div", {}, el("time", {}, d), txt)));
+  if (b.t === "artifact") return el("div", { class: "artifact" }, el("div", { class: "doc-title" }, b.title), el("div", { html: b.html }));
+}
+
+function verdictFor(chosen, anchor) {
+  const a = lvl(anchor).rank, c = lvl(chosen).rank;
+  if (chosen === anchor) return { tag: "Exact match", color: "--lvl-p", text: "Your rating matches the anchor." };
+  if (c == null) return { tag: "Evidence present", color: "--lvl-d", text: "This scenario gives enough evidence to rate the item." };
+  const diff = c - a;
+  const dir = diff > 0 ? "higher" : "lower";
+  if (Math.abs(diff) === 1) return { tag: "Within one level", color: "--lvl-d", text: `You rated one level ${dir} than the anchor.` };
+  return { tag: `${Math.abs(diff)} levels ${dir}`, color: "--lvl-u", text: `You rated ${Math.abs(diff)} levels ${dir} than the anchor. Compare the descriptors closely.` };
+}
+
+function renderScenario(item, sc, index) {
+  const chosen = state.ratings[sc.id];
+  const scored = !!chosen;
+  const art = el("article", { class: "case", id: sc.id });
+  art.append(el("div", { class: "case-head" },
+    el("span", { class: "eyebrow" }, `Scenario ${item.code}.${index + 1}`),
+    el("h3", {}, sc.title),
+    el("div", { class: "chips" },
+      el("span", { class: "chip kind" }, sc.kind),
+      el("span", { class: "chip" }, sc.grade),
+      el("span", { class: "chip" }, sc.subject),
+      el("span", { class: "chip" }, sc.when))
+  ));
+  art.append(el("div", { class: "case-body" }, sc.body.map(renderBlock)));
+
+  const fs = el("fieldset", { class: "rate", disabled: scored });
+  fs.append(el("legend", {}, `How would you rate item ${item.code}, ${item.name}?`));
+  [...LEVELS.slice(1), LEVELS[0]].forEach(L => {
+    const id = `${sc.id}-${L.key}`;
+    const isAnchor = scored && L.key === sc.anchor;
+    fs.append(el("label", { class: "opt" + (isAnchor ? " is-anchor" : ""), for: id, style: `--c: var(${L.color})` },
+      el("input", { type: "radio", name: sc.id, id, value: L.key, checked: chosen === L.key,
+        onchange: () => { btn.disabled = false; } }),
+      el("span", { class: "lvl" }, L.name, L.short ? el("small", {}, L.short) : null),
+      el("span", { class: "desc" }, item.descriptors[L.key])
+    ));
+  });
+  const ta = el("textarea", { id: `${sc.id}-notes`, placeholder: "e.g., turn-and-talk lasted 40 seconds; share-out went back to one right answer", oninput: e => { state.notes[sc.id] = e.target.value; save(); } });
+  ta.value = state.notes[sc.id] || "";
+  fs.append(el("div", { class: "evidence" }, el("label", { for: ta.id }, "What evidence did you base your rating on? (optional)"), ta));
+  const btn = el("button", { class: "btn", type: "button", disabled: !scored && !chosen,
+    onclick: () => {
+      const pick = fs.querySelector("input:checked");
+      if (!pick) return;
+      state.ratings[sc.id] = pick.value; save(); render(sc.id);
+    } }, "Check my rating");
+  if (!scored) fs.append(el("div", { class: "actions" }, btn));
+  art.append(fs);
+
+  if (scored) {
+    const v = verdictFor(chosen, sc.anchor);
+    const A = lvl(sc.anchor);
+    const fb = el("section", { class: "feedback", "aria-label": "Feedback" },
+      el("div", { class: "verdict" },
+        el("span", { class: "tag", style: `--c: var(${v.color})` }, v.tag),
+        el("span", {}, v.text, " Anchor: ", el("b", { style: `color: var(${A.color})` }, A.name), ". You chose: ", el("b", {}, lvl(chosen).name), ".")),
+      el("p", {}, sc.rationale),
+      el("div", {}, el("h4", {}, "Key evidence"), el("ul", {}, sc.evidence.map(e => el("li", {}, e)))),
+      el("div", {}, el("h4", {}, "Why not one level higher?"), el("p", {}, sc.notUp)),
+      el("div", {}, el("h4", {}, "Why not one level lower?"), el("p", {}, sc.notDown)),
+      sc.caution ? el("div", { class: "note" }, el("b", {}, "Calibration note: "), sc.caution) : null,
+      el("div", {}, el("h4", {}, "Sample comment for Anthology Portfolio"), el("div", { class: "comment" }, sc.comment)),
+      el("div", { class: "actions" }, el("button", { class: "btn ghost", type: "button", onclick: () => { delete state.ratings[sc.id]; save(); render(sc.id); } }, "Rate this scenario again"))
+    );
+    art.append(fb);
+  }
+  return art;
+}
+
+function stats(scenarios) {
+  let done = 0, exact = 0, within = 0, higher = 0, lower = 0;
+  scenarios.forEach(sc => {
+    const c = state.ratings[sc.id]; if (!c) return;
+    done++;
+    const a = lvl(sc.anchor).rank, r = lvl(c).rank;
+    if (c === sc.anchor) exact++;
+    if (r != null && Math.abs(r - a) <= 1) within++;
+    if (r != null && r > a) higher++;
+    if (r != null && r < a) lower++;
+  });
+  return { done, exact, within, higher, lower, total: scenarios.length };
+}
+
+function renderSummary(item) {
+  const s = stats(item.scenarios);
+  if (s.done < s.total) return null;
+  let msg = "Your ratings matched the anchors across the board.";
+  if (s.higher > s.lower) msg = "You tended to rate higher than the anchors. This matches the program-wide pattern for mentors. Before you settle on a rating, check that each phrase in the descriptor is visible in your evidence.";
+  else if (s.lower > s.higher) msg = "You tended to rate lower than the anchors. Make sure you credit evidence that meets the descriptor, even early in the internship.";
+  else if (s.exact < s.total) msg = "Your misses went in both directions, so there's no consistent lean. Revisit the scenarios you missed and compare the key phrases between levels.";
+  return el("section", { class: "summary", "aria-label": "Item summary" },
+    el("h3", {}, `Item ${item.code} summary`),
+    el("div", { class: "tally" },
+      el("div", {}, el("b", {}, `${s.exact}/${s.total}`), el("span", {}, "Exact matches")),
+      el("div", {}, el("b", {}, `${s.within}/${s.total}`), el("span", {}, "Within one level")),
+      el("div", {}, el("b", {}, s.higher), el("span", {}, "Rated higher than anchor")),
+      el("div", {}, el("b", {}, s.lower), el("span", {}, "Rated lower than anchor"))),
+    el("p", {}, msg));
+}
+
+function render(focusId) {
+  const tabs = document.getElementById("tabs");
+  tabs.replaceChildren(...ITEMS.map(it => el("button", {
+    class: "tab", role: "tab", type: "button", "aria-selected": String(state.tab === it.code),
+    onclick: () => { state.tab = it.code; save(); render(); window.scrollTo({ top: document.querySelector(".bar").offsetTop - 4 }); }
+  }, el("span", { class: "code" }, it.code), it.name)));
+
+  const all = ITEMS.flatMap(i => i.scenarios);
+  const s = stats(all);
+  document.getElementById("progress").replaceChildren(
+    el("span", {}, el("b", {}, `${s.done}/${s.total}`), " rated · ", el("b", {}, `${s.exact}`), " exact · ", el("b", {}, `${s.within}`), " within one"));
+
+  const item = ITEMS.find(i => i.code === state.tab) || ITEMS[0];
+  const main = document.getElementById("main");
+  main.replaceChildren(
+    el("section", { class: "item-head" },
+      el("span", { class: "eyebrow" }, `Item ${item.code} · ${item.domain}`),
+      el("h2", {}, item.name),
+      el("blockquote", {}, item.stem),
+      el("p", { class: "why muted" }, el("b", {}, "Why this item: "), item.why)),
+    ...item.scenarios.map((sc, i) => renderScenario(item, sc, i)),
+    renderSummary(item)
+  );
+  if (focusId) {
+    const target = document.getElementById(focusId);
+    const fb = target && target.querySelector(".feedback, fieldset");
+    if (fb) fb.scrollIntoView({ block: "nearest" });
+  }
+}
+
+document.getElementById("reset").addEventListener("click", () => {
+  state.ratings = {}; state.notes = {}; save(); render();
+  document.getElementById("reset-msg").textContent = "Ratings cleared.";
+});
+render();
+</script>
