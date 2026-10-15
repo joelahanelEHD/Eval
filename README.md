@@ -25,11 +25,22 @@ optionally note their evidence, then see the anchor rating with:
 | | P.2 Fraction tiles | Gr 4 math, Internship II midterm | Vignette | Unacceptable |
 | | P.3 Density lab, day one | Gr 8 science, Internship I final | Vignette | Developing |
 | | P.4 Community agreements | Gr 11 English, Internship II final | Artifact + observation | Exemplary |
+| R. Cultural Competence | R.1 All About Me posters | Gr 1 social studies, Internship I final | Mentor notes over time | Developing |
+| | R.2 Farm runoff unit | Gr 9 biology, Internship II midterm | Lesson plan excerpt + debrief | Unacceptable |
+| | R.3 Math at home survey | Gr 4 math, Internship II final | Artifact + mentor notes | Proficient |
+| | R.4 Community experts panel | Gr 12 government, Internship II final | Mentor notes over time | Exemplary |
 
 Items G and P were chosen because mentor–coach agreement on them was no better
 than chance in the 2025–26 inter-rater reliability analysis: weighted kappa of
 −0.12 to 0.11 for G and −0.01 to 0.09 for P. Exact agreement was 50–52% for G
 and 34–44% for P, the lowest of any item. See `data/item_profiles_2025_26.json`.
+
+Item R was added because mentors rated it much higher than coaches: when they
+disagreed, mentors rated higher in 45% of final pairs and lower in 5%, and
+mentors gave Exemplary on 47% of final ratings versus 23% for coaches (weighted
+kappa 0.04 midterm, 0.12 final). Comments on R were mostly vague and were
+sometimes really about Teacher Affect (O), so the R scenarios target rapport
+versus funds of knowledge and the Proficient–Exemplary line.
 
 **Anchor ratings are drafts and need faculty review before mentors use them.**
 

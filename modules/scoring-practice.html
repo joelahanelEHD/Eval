@@ -179,7 +179,7 @@ footer { font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--li
         <li><b>Watch for "equitably."</b> Several descriptors require that the practice reaches all students. Uneven treatment can hold a rating down even when the strategy is good.</li>
         <li><b>Use "No Opportunity to Observe" only when you truly saw nothing</b> related to the item.</li>
       </ul>
-      <p class="muted" style="font-size:0.9rem">Why this matters: in 2026, mentors and clinical coaches were usually within one level of each other, but exact agreement was close to chance on items like Instructional Dialogue and Expectations for Student Behavior. Mentors also rated higher than coaches on average, most of all in Instructional Delivery.</p>
+      <p class="muted" style="font-size:0.9rem">Why this matters: in 2026, mentors and clinical coaches were usually within one level of each other, but exact agreement was close to chance on items like Instructional Dialogue, Expectations for Student Behavior, and Cultural Competence. Mentors also rated higher than coaches on average, most of all in Instructional Delivery, and they gave Exemplary for Cultural Competence about twice as often as coaches did.</p>
     </div>
   </details>
 
@@ -439,6 +439,118 @@ const ITEMS = [
         notDown: "Proficient covers clear, consistently and equitably enforced expectations. What lifts this to Exemplary is student involvement in identifying, establishing, and especially reviewing the expectations over time.",
         comment: "Your community agreements process, with co-creation, monthly review, and a class-voted revision, is a model for colleagues. Students hold each other to the agreements, and you enforce them evenly.",
         caution: "Co-writing norms in week one is common, and by itself it isn’t Exemplary. Look for evidence that students keep reviewing the expectations and that enforcement stays consistent and equitable."
+      }
+    ]
+  },
+  {
+    code: "R",
+    domain: "Learning Environment",
+    name: "Cultural Competence",
+    stem: "The candidate demonstrates cultural competence and responsiveness to diverse student and family funds of knowledge.",
+    why: "In 2025–26, mentors and coaches gave the same rating on 56% of midterm and 50% of final ratings for this item, with agreement little better than chance (weighted kappa 0.04 and 0.12). When they disagreed, mentors almost always rated higher: at the final, mentors gave Exemplary on 47% of ratings and coaches on 23%. Comments on this item were mostly vague, and some described rapport (item O, Teacher Affect) rather than funds of knowledge.",
+    descriptors: {
+      N: "There was no opportunity to observe tasks related to this criterion.",
+      U: "The candidate demonstrates limited cultural competence and is unable to draw on student and family funds of knowledge when planning instruction.",
+      D: "The candidate attempts to draw on student and family funds of knowledge when planning instruction, though these efforts may be infrequent and/or superficial.",
+      P: "The candidate draws on student and family funds of knowledge to ensure content is relevant, to draw on learners’ assets, and to help students make authentic, real-world connections. The candidate makes consistent efforts to engage families and the community within and outside of the classroom.",
+      E: "The candidate draws on student and family funds of knowledge to ensure content is relevant, to draw on learners’ assets, and to help students make authentic, real-world connections. The candidate independently identifies and acts on opportunities to engage with and differentiate for families and to include families in the learning partnership."
+    },
+    scenarios: [
+      {
+        id: "R1", title: "All About Me posters",
+        grade: "Grade 1", subject: "Social Studies", kind: "Mentor notes over time", when: "Internship I · Final",
+        body: [
+          { t: "p", text: "Ms. Torres is teaching a unit called “Families and Traditions.” The mentor kept notes across the semester." },
+          { t: "log", entries: [
+            ["September", "Students made “All About Me” posters with family photos, languages spoken at home, and favorite foods. Posters went up on the hallway wall. Ms. Torres greets every child by name at the door and knows their pets, siblings, and weekend plans. The children adore her."],
+            ["October", "Weekly newsletter goes home in English only. Four families prefer Spanish and one prefers Amharic. When asked, she said the front office handles translation. The office translates only school-wide notices."],
+            ["November, week 1", "Unit launch: read a purchased picture book on holidays around the world. “Food Around the World” day: she brought snacks labeled with country flags."],
+            ["November, week 2", "During a lesson on family traditions, Amara said, “My grandma makes injera every Sunday and I help.” Ms. Torres said, “Yum! That sounds delicious,” and returned to the worksheet. The posters have not been referred to since September."]
+          ] }
+        ],
+        anchor: "D",
+        rationale: "Ms. Torres attempts to draw on students’ backgrounds (the posters, the food day), but the efforts are superficial and infrequent. The information she gathered in September never shapes instruction, the unit uses generic “holidays around the world” content instead of students’ own families, and a student’s offered tradition is passed over. That matches “attempts… though these efforts may be infrequent and/or superficial.”",
+        evidence: [
+          "Gathered student and family information in September (posters), then never used it.",
+          "Unit content came from a purchased book and flag-labeled snacks, not from students’ own families.",
+          "Amara’s Sunday injera tradition, a ready-made funds-of-knowledge connection, was acknowledged and dropped.",
+          "Newsletters go home in English only; she assumed translation was handled elsewhere."
+        ],
+        notUp: "Proficient requires drawing on funds of knowledge to make content relevant and build real-world connections, plus consistent efforts to engage families. Neither is happening yet: students’ actual knowledge isn’t in the lessons, and families who prefer other languages aren’t being reached.",
+        notDown: "Unacceptable means the candidate is unable to draw on funds of knowledge when planning. She did plan activities meant to reflect students’ cultures and collected information to use; the efforts are shallow, not absent.",
+        comment: "You collected rich information about students’ families in September. Next step: build that into instruction. For example, invite Amara and her grandmother to share how injera is made, and plan the traditions unit around what students’ own families do. Let’s also work with the office or the division’s translation service so your newsletter reaches families in Spanish and Amharic.",
+        caution: "This is the item most often confused with Teacher Affect (item O). Ms. Torres’s warmth and her knowledge of students’ pets and siblings is real, and it belongs under item O. Cultural Competence asks whether students’ and families’ knowledge shapes the teaching. Rapport alone does not lift this rating."
+      },
+      {
+        id: "R2", title: "Farm runoff unit",
+        grade: "Grade 9", subject: "Biology", kind: "Lesson plan excerpt + debrief", when: "Internship II · Midterm",
+        body: [
+          { t: "p", text: "Mr. Dunn teaches biology at a rural high school. Many students’ families farm or work at the county poultry plant, and several students hunt and fish. He is planning a unit on water quality and ecosystems." },
+          { t: "artifact", title: "Unit plan excerpt: Water Quality (planning notes section)", html: "<p><b>Context for learners:</b> Many students have limited background knowledge and little academic support at home, so I will keep examples generic and follow the textbook case studies (Chesapeake Bay dead zones, Lake Erie algae blooms) closely.</p><p><b>Family involvement:</b> N/A</p>" },
+          { t: "note", label: "Debrief", text: "The mentor suggested starting from what students already know: runoff from their own fields, fish kills in the local creek, or a farm’s soil testing. Mr. Dunn said, “I’d rather not get into people’s farms. It isn’t on the test.” A parent who works at the farm co-op had emailed offering to bring a water-testing kit to class; he replied that the schedule was too full." },
+          { t: "note", label: "Mentor’s context", text: "The same approach appeared in his two previous units." }
+        ],
+        anchor: "U",
+        rationale: "The planning notes frame students’ backgrounds as deficits (“limited background knowledge,” “little academic support at home”) and plan around them. When the mentor pointed to local knowledge and a parent offered to bring in a resource, he declined both. That matches “limited cultural competence… unable to draw on student and family funds of knowledge when planning instruction.”",
+        evidence: [
+          "Planning notes describe students only in terms of what they lack.",
+          "Students’ direct experience with runoff, fishing, and soil testing is unused, even though it fits the unit exactly.",
+          "Declined the mentor’s suggestion and a parent’s offer to bring in a water-testing kit.",
+          "“Family involvement: N/A” on the plan, and the same pattern across three units."
+        ],
+        notUp: "Developing requires an attempt to draw on funds of knowledge, even a shallow one. Here there was no attempt, and two concrete opportunities were turned down.",
+        notDown: "There is clear evidence in the plan and the debrief, so “No Opportunity to Observe” does not apply.",
+        comment: "Your students know a great deal about water, soil, and runoff from their families’ work. That knowledge is an asset for this unit. Let’s revise the launch to start from the local creek, and take the co-op parent up on the water-testing offer. In your planning notes, describe what students bring, not only what they lack.",
+        caution: "Cultural competence is not only about race, ethnicity, or language. Rural, working-class, and occupational knowledge are funds of knowledge too. Deficit language in planning (“they don’t have…”) is a strong signal for this item, even when the candidate is kind to students in person."
+      },
+      {
+        id: "R3", title: "Math at home survey",
+        grade: "Grade 4", subject: "Mathematics", kind: "Candidate artifact + mentor notes", when: "Internship II · Final",
+        body: [
+          { t: "p", text: "Ms. Kim used the school’s beginning-of-year family survey, adding one question of her own: “How does your family use math at home or at work?” She built her measurement unit from the answers." },
+          { t: "artifact", title: "Measurement unit: problems built from family survey answers", html: "<ul><li>Diego’s family lays tile. How many 1-foot tiles cover a 9 ft × 12 ft kitchen?</li><li>Fatima’s mother sews. A dress pattern needs 2¾ yards of fabric. How many inches is that?</li><li>Mr. Lor sells vegetables at the farmers market. If a bunch of greens weighs 6 ounces, how many bunches make 3 pounds?</li></ul><p><b>Home connection:</b> Students interview a family member: “How do you measure things in your work or at home?” They share the answers in class on Friday.</p>" },
+          { t: "note", label: "Mentor’s notes", text: "Students lit up seeing their families in the problems, and the interviews brought in measuring tools from three homes. She sent the grade-level newsletter every two weeks through the school’s translation service, with a short note about what her class was learning, and personally invited families to the school’s Math Night. Four families didn’t return the survey. She didn’t follow up with them, and the interview assignment went to those students without adjustment. All of her family contact used the school’s existing channels." }
+        ],
+        anchor: "P",
+        rationale: "Ms. Kim draws on families’ real knowledge (tiling, sewing, market selling) to make content relevant, treats it as an asset, and creates authentic, real-world connections. She makes consistent efforts to engage families through the newsletter, the interviews, and Math Night. That is the full Proficient descriptor.",
+        evidence: [
+          "Added her own survey question to learn how families use math.",
+          "Problems built from specific families’ work (tile, sewing, farmers market).",
+          "Family interview assignment brings home knowledge into class.",
+          "Regular translated newsletters and personal Math Night invitations.",
+          "No follow-up with the four families who didn’t respond; all outreach used existing school channels."
+        ],
+        notUp: "This is where mentors most often over-rate this item. Exemplary asks the candidate to independently identify and act on opportunities to engage with and differentiate for families, and to include families in the learning partnership. Ms. Kim uses existing structures well, but the four non-responding families got no different approach, and families serve as sources of information rather than partners in planning or teaching. It’s strong work and the program target, not yet a model for colleagues.",
+        notDown: "Developing describes infrequent or superficial efforts. Here, families’ knowledge shapes the whole unit, and family engagement is regular.",
+        comment: "Your measurement unit is built on what families actually do, from tiling to sewing to the farmers market, and students were proud to see their families in the math. Next step: reach the four families who didn’t return the survey another way (a phone call, a conversation at pickup, or an interpreter), and consider inviting a family member to co-teach a lesson.",
+        caution: "In 2025–26, mentors gave Exemplary on this item about twice as often as coaches did. Before choosing Exemplary, look for the specific Exemplary language: the candidate acting independently, adjusting outreach for particular families, and families as partners in learning."
+      },
+      {
+        id: "R4", title: "Community experts panel",
+        grade: "Grade 12", subject: "Government", kind: "Mentor notes over time", when: "Internship II · Final",
+        body: [
+          { t: "p", text: "Mr. Haddad taught a unit on local government. The mentor kept notes across the semester." },
+          { t: "log", entries: [
+            ["January", "In student conferences, he learned that several families run or volunteer at a tenants’ association and a mosque food pantry, one parent serves on the county planning commission, and one student’s father, who arrived recently as a refugee, was a civil engineer before resettling."],
+            ["February", "Two English-learner students’ families hadn’t come to fall conferences. He called each family with an interpreter from the division language line, asked what times worked, and held evening phone conferences. One mother asked how she could help with the civics project, so he wrote a one-page guide to the project in English and Dari with questions families could discuss at home."],
+            ["March", "Students designed questions for a “community experts” panel of the family members above. The engineer described how roads and drainage were planned in his home city, and students compared that process with the county’s."],
+            ["April", "Final projects addressed local issues that students and families proposed, such as bus-stop safety and food-pantry zoning. Students presented at a community night at the public library, which he arranged with the librarian. Several families attended, and two family members gave feedback on projects."],
+            ["Mentor’s note", "None of this was required by the school or suggested by me."]
+          ] }
+        ],
+        anchor: "E",
+        rationale: "Mr. Haddad does everything in Proficient: families’ knowledge makes the content relevant, students’ assets drive the work, and the projects connect to real local issues. He also independently identifies and acts on opportunities to engage families, differentiates for particular families (interpreter-supported evening calls, a translated guide), and includes families as partners: as experts, as sources of project topics, and as reviewers. That is the full Exemplary descriptor.",
+        evidence: [
+          "Learned specific family expertise early and used it to plan the unit.",
+          "Differentiated outreach: interpreter-supported evening calls, and a guide in English and Dari.",
+          "Families as partners: panel experts, project topics, and feedback at community night.",
+          "Real-world connections: students compared planning processes and tackled local issues.",
+          "Mentor confirms all of this was the candidate’s own initiative."
+        ],
+        notUp: "Exemplary is the top of the scale.",
+        notDown: "Proficient covers drawing on funds of knowledge and making consistent efforts to engage families. What lifts this to Exemplary is the candidate independently adapting outreach for specific families and bringing families into the learning as partners, not only as an audience.",
+        comment: "You found the expertise in your students’ families and built the unit around it, from the community experts panel to projects on local issues. Your interpreter-supported calls and the guide in Dari brought in families who hadn’t been reached. This is a model for colleagues.",
+        caution: "A single family night or guest speaker is not enough for Exemplary. Look for a sustained pattern of the candidate acting on their own initiative, adjusting outreach for particular families, and families shaping the learning."
       }
     ]
   }
