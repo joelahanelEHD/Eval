@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "title": "Comment patterns for mentor training (invented examples)",
+    "purpose": "Examples for a 'Which comment supports this rating?' exercise. Each pattern is one that appeared often in 2025-26 assessor comments.",
+    "contains": "Every example comment below was written for training. None is copied or adapted from a real assessor comment; a script checked that no example shares a phrase of six or more words with any real comment, apart from wording quoted from the public rubric. Names are not used.",
+    "source_of_patterns": "Comment codebook v1.0 (draft) and the 2025-26 process-test coding; see item_profiles_2025_26.json for how often each pattern occurred.",
+    "status": "Draft for faculty review.",
+    "share_2025_26": "Share of the 300 process-test comments carrying each pattern; a comment can carry more than one."
+  },
+  "patterns": [
+    {
+      "id": "specific_evidence",
+      "label": "Describes what the candidate did",
+      "supports_rating": true,
+      "definition": "Names an observed behavior, artifact, or lesson moment that an outside reader could picture.",
+      "share_2025_26": 0.36
+    },
+    {
+      "id": "general_claim",
+      "label": "Praise or criticism with nothing observed",
+      "supports_rating": false,
+      "definition": "An evaluative statement ('does a great job', 'is a strength') with no behavior described.",
+      "share_2025_26": 0.33
+    },
+    {
+      "id": "restates_rubric",
+      "label": "Copies the rubric wording",
+      "supports_rating": false,
+      "definition": "Repeats a descriptor instead of describing the candidate. It says which level the rater chose, not why.",
+      "share_2025_26": 0.05
+    },
+    {
+      "id": "developmental_only",
+      "label": "Says the candidate is growing, but not how",
+      "supports_rating": false,
+      "definition": "'Becoming more consistent' or 'working on it' with no behavior named. Trajectory language usually describes Developing, so it should not sit beside a Proficient or Exemplary rating.",
+      "share_2025_26": 0.13
+    },
+    {
+      "id": "effort_only",
+      "label": "Describes effort or attitude",
+      "supports_rating": false,
+      "definition": "'Works hard', 'is eager to improve'. Effort matters, but the item asks about performance.",
+      "share_2025_26": 0.03
+    },
+    {
+      "id": "not_observed_but_scored",
+      "label": "Says it was not observed, but gives a level",
+      "supports_rating": false,
+      "definition": "If you did not see it, choose 'No opportunity to observe' instead of a level.",
+      "share_2025_26": 0.07,
+      "share_note": "7% of coded comments said the item was not observed; half of those still carried a score."
+    }
+  ],
+  "items": [
+    {
+      "code": "G",
+      "name": "Instructional Dialogue",
+      "examples": [
+        {
+          "pattern": "specific_evidence",
+          "supports_level": "D",
+          "comment": "In the fractions lesson, partners compared strategies for about a minute, then each pair reported one answer back to the teacher. When a student asked why two different methods both worked, the question went to the parking lot and was not picked up again.",
+          "why": "Names the strategy, how long students talked, and what happened to a student question. That evidence matches 'brief or inconsistent' in the Developing descriptor."
+        },
+        {
+          "pattern": "general_claim",
+          "supports_level": null,
+          "comment": "Discussion is a real strength. The class is always lively.",
+          "why": "'Lively' could mean the teacher talks a lot or the students do. Nothing says who did the talking or for how long."
+        },
+        {
+          "pattern": "restates_rubric",
+          "supports_level": null,
+          "comment": "The candidate consistently uses strategies (e.g., open-ended questions, grouping structures) that cause students to take an active role in classroom dialogue.",
+          "why": "This is the Proficient descriptor word for word. A reader learns the rating but not what was seen."
+        },
+        {
+          "pattern": "developmental_only",
+          "supports_level": "D",
+          "comment": "Getting better at letting students talk to each other.",
+          "why": "Signals growth, so at most Developing, but gives no example. Add one moment from a recent lesson."
+        }
+      ],
+      "revision_tip": "Name one moment: the prompt, how long students talked, and whether students responded to each other or only to the teacher."
+    },
+    {
+      "code": "P",
+      "name": "Expectations for Student Behavior",
+      "examples": [
+        {
+          "pattern": "specific_evidence",
+          "supports_level": "P",
+          "comment": "Before each transition she posts the noise level and the three steps on the board, then names the step students should be on. Over the past three weeks she has followed through the same way with every table, including the group that usually tests limits.",
+          "why": "Shows expectations are clear (posted, named) and enforced consistently and equitably (every table, over weeks). That is the Proficient descriptor."
+        },
+        {
+          "pattern": "general_claim",
+          "supports_level": null,
+          "comment": "Students respect her and she runs a tight ship.",
+          "why": "Describes the outcome, not how expectations were set or enforced."
+        },
+        {
+          "pattern": "developmental_only",
+          "supports_level": "D",
+          "comment": "Expectations are becoming clearer as the semester goes on.",
+          "why": "Implies they were not always clear, which fits Developing, but names no expectation."
+        },
+        {
+          "pattern": "specific_evidence",
+          "supports_level": "D",
+          "comment": "Hallway and carpet routines were taught in week one, but during centers the rules shifted day to day, and two students were reminded several times while others doing the same thing were not.",
+          "why": "Expectations exist but are applied unevenly. Note that this is about expectations; redirecting misbehavior in the moment belongs under Behavior Management (Q)."
+        }
+      ],
+      "revision_tip": "Say what the expectation was, how students learned it, and whether it was enforced the same way for everyone. Keep in-the-moment redirection for item Q."
+    },
+    {
+      "code": "Q",
+      "name": "Behavior Management",
+      "examples": [
+        {
+          "pattern": "specific_evidence",
+          "supports_level": "P",
+          "comment": "During read-aloud she moved toward the two students drifting off task and paused mid-sentence; both refocused without a word. Later she gave a quiet verbal cue to a student at another table rather than calling him out to the room.",
+          "why": "Proactive moves (proximity, pause) and an equitable verbal cue that kept the lesson going match Proficient."
+        },
+        {
+          "pattern": "general_claim",
+          "supports_level": null,
+          "comment": "No behavior problems in her lessons.",
+          "why": "An absence of problems is not evidence of proactive strategies. Describe what she did that prevented them."
+        },
+        {
+          "pattern": "restates_rubric",
+          "supports_level": null,
+          "comment": "The candidate proactively addresses behavior to prevent problems from developing.",
+          "why": "Copies the descriptor. Add the strategy you saw."
+        },
+        {
+          "pattern": "not_observed_but_scored",
+          "supports_level": null,
+          "comment": "I did not see much misbehavior to redirect during my visits.",
+          "why": "If redirection was not observed, the honest rating may be 'No opportunity to observe' for this time point, or a comment on the proactive strategies you did see."
+        }
+      ],
+      "revision_tip": "Describe one proactive move and one redirection, and say whether they were applied the same way to all students."
+    },
+    {
+      "code": "A",
+      "name": "Content Understanding",
+      "examples": [
+        {
+          "pattern": "specific_evidence",
+          "supports_level": "P",
+          "comment": "When a student said a heavier object falls faster, he asked the class to predict, dropped two balls of different mass, and connected the result back to the idea of gravity acting on both equally.",
+          "why": "Shows accurate content knowledge and an explicit connection made for students during the lesson."
+        },
+        {
+          "pattern": "general_claim",
+          "supports_level": null,
+          "comment": "Knows the content very well.",
+          "why": "Knowing the content is the starting point; the item asks whether the candidate makes connections for students. Describe one."
+        },
+        {
+          "pattern": "effort_only",
+          "supports_level": null,
+          "comment": "Works hard to learn the curriculum before each unit.",
+          "why": "Preparation effort, not content understanding shown in teaching."
+        },
+        {
+          "pattern": "restates_rubric",
+          "supports_level": null,
+          "comment": "The candidate is able to identify and demonstrate knowledge of the essential components of a concept.",
+          "why": "A descriptor fragment. In 2025-26 this exact descriptor was pasted for several different candidates, which is why copied text is a concern."
+        }
+      ],
+      "revision_tip": "Describe a moment where the candidate connected two ideas for students, or corrected a misconception accurately."
+    },
+    {
+      "code": "N",
+      "name": "Student Metacognition",
+      "examples": [
+        {
+          "pattern": "specific_evidence",
+          "supports_level": "D",
+          "comment": "As the lesson wrapped up, students rated their confidence with a thumbs signal, but there was no follow-up asking them how they knew or what they would try next.",
+          "why": "A brief, shallow opportunity for reflection, matching 'occasional ... brief and limited in depth'."
+        },
+        {
+          "pattern": "specific_evidence",
+          "supports_level": "P",
+          "comment": "Each lab ends with a three-question exit slip where students explain which step confused them and how they worked through it, and she uses those slips to open the next class.",
+          "why": "Routine, extended reflection by students on their own learning matches Proficient."
+        },
+        {
+          "pattern": "general_claim",
+          "supports_level": null,
+          "comment": "Gives students lots of chances to think.",
+          "why": "'Think' could mean any task. Metacognition is students thinking about their own thinking or progress."
+        },
+        {
+          "pattern": "developmental_only",
+          "supports_level": "D",
+          "comment": "Still working on building this into lessons.",
+          "why": "Implies it is not yet routine, so at most Developing, with no example."
+        }
+      ],
+      "revision_tip": "Say how students reflected on their own learning, how often, and how deeply."
+    }
+  ]
+}

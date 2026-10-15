@@ -1,0 +1,1409 @@
+{
+  "meta": {
+    "title": "Internship Evaluation item profiles, 2025-26",
+    "source": "UVA EHD internship evaluation validity study, 2025-26 run (488 evaluations, 104 candidates).",
+    "generated": "2026-10-15",
+    "contains": "Aggregate statistics only. No comment text, no candidate or assessor identifiers, no row-level data.",
+    "scores": "Half-point scores rounded down to the four rubric levels (2.5 -> Developing, 3.5 -> Proficient).",
+    "agreement": "Coach-mentor pairs on the same candidate, term, and item. Weighted kappa is quadratic. mentor_higher / mentor_lower are shares of pairs.",
+    "comment_patterns_status": "PROCESS TEST: comments coded by Claude only, without human double-coding. Use for training design; do not cite as validity evidence until the human-coded run.",
+    "comment_sample": "300 coach and mentor comments stratified by domain x rater x term; 7-17 per item, so item-level comment shares are directional.",
+    "codes": "Item codes A-W follow the instrument guide order."
+  },
+  "program": {
+    "coach_mentor": {
+      "midterm": {
+        "candidates": 49,
+        "exact_agreement": 0.5,
+        "within_one_level": 0.95,
+        "weighted_kappa": 0.12,
+        "second_rater_higher": 0.32,
+        "second_rater_lower": 0.18
+      },
+      "final": {
+        "candidates": 50,
+        "exact_agreement": 0.53,
+        "within_one_level": 0.99,
+        "weighted_kappa": 0.18,
+        "second_rater_higher": 0.34,
+        "second_rater_lower": 0.13
+      }
+    },
+    "self_coach_final": {
+      "candidates": 90,
+      "exact_agreement": 0.68,
+      "within_one_level": 0.99,
+      "weighted_kappa": 0.33,
+      "second_rater_higher": 0.16,
+      "second_rater_lower": 0.16
+    },
+    "comment_patterns": {
+      "coded_comments": 300,
+      "no_level_evidence": 0.56,
+      "score_matches_evidence": 0.65,
+      "score_above_evidence": 0.28,
+      "score_below_evidence": 0.07,
+      "exemplary_scores_with_exemplary_evidence": "4 of 19",
+      "vague": 0.38,
+      "no_observational_basis": 0.07,
+      "context_driven": 0.08,
+      "by_rater": {
+        "Coach": {
+          "coded_comments": 198,
+          "specific_evidence": 0.42,
+          "vague": 0.32,
+          "mismatch_of_scored": 0.28
+        },
+        "Mentor": {
+          "coded_comments": 102,
+          "specific_evidence": 0.24,
+          "vague": 0.48,
+          "mismatch_of_scored": 0.58
+        }
+      }
+    },
+    "reused_comment_text": "58 comment texts of six or more words were given word for word to two or more different candidates (all 1,763 coach and mentor comments)."
+  },
+  "items": [
+    {
+      "code": "A",
+      "name": "Content Understanding",
+      "domain": "Professional Knowledge",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 49,
+          "exact_agreement": 0.49,
+          "within_one_level": 0.94,
+          "weighted_kappa": 0.01,
+          "mentor_higher": 0.33,
+          "mentor_lower": 0.18
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.5,
+          "within_one_level": 1.0,
+          "weighted_kappa": -0.05,
+          "mentor_higher": 0.28,
+          "mentor_lower": 0.22
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.02,
+          "proficient": 0.72,
+          "exemplary": 0.26
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.04,
+          "proficient": 0.65,
+          "exemplary": 0.31
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 15,
+        "low_n": false,
+        "specific_evidence": 0.07,
+        "vague": 0.73,
+        "restates_rubric": 0.07,
+        "names_next_step": 0.2,
+        "no_level_evidence": 0.6,
+        "comments_with_level_and_score": 6,
+        "score_above_evidence": 0.5,
+        "on_construct": 0.8,
+        "often_confused_with": [
+          {
+            "code": "B",
+            "name": "Curriculum Standards",
+            "comments": 1
+          }
+        ]
+      }
+    },
+    {
+      "code": "B",
+      "name": "Curriculum Standards",
+      "domain": "Professional Knowledge",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 48,
+          "exact_agreement": 0.65,
+          "within_one_level": 0.98,
+          "weighted_kappa": 0.18,
+          "mentor_higher": 0.23,
+          "mentor_lower": 0.12
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.56,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.05,
+          "mentor_higher": 0.32,
+          "mentor_lower": 0.12
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.02,
+          "proficient": 0.73,
+          "exemplary": 0.25
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.02,
+          "proficient": 0.63,
+          "exemplary": 0.35
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 14,
+        "low_n": false,
+        "specific_evidence": 0.43,
+        "vague": 0.5,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.21,
+        "no_level_evidence": 0.57,
+        "comments_with_level_and_score": 6,
+        "score_above_evidence": 0.17,
+        "on_construct": 0.93,
+        "often_confused_with": [
+          {
+            "code": "A",
+            "name": "Content Understanding",
+            "comments": 1
+          }
+        ]
+      }
+    },
+    {
+      "code": "C",
+      "name": "Learning Targets",
+      "domain": "Instructional Planning",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 49,
+          "exact_agreement": 0.51,
+          "within_one_level": 0.92,
+          "weighted_kappa": -0.04,
+          "mentor_higher": 0.31,
+          "mentor_lower": 0.18
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.52,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.01,
+          "mentor_higher": 0.36,
+          "mentor_lower": 0.12
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.01,
+          "unacceptable": 0.0,
+          "developing": 0.04,
+          "proficient": 0.76,
+          "exemplary": 0.2
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.02,
+          "proficient": 0.65,
+          "exemplary": 0.33
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 17,
+        "low_n": false,
+        "specific_evidence": 0.35,
+        "vague": 0.41,
+        "restates_rubric": 0.12,
+        "names_next_step": 0.06,
+        "no_level_evidence": 0.41,
+        "comments_with_level_and_score": 10,
+        "score_above_evidence": 0.5,
+        "on_construct": 1.0,
+        "often_confused_with": []
+      }
+    },
+    {
+      "code": "D",
+      "name": "Lesson Plan Details",
+      "domain": "Instructional Planning",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 47,
+          "exact_agreement": 0.45,
+          "within_one_level": 0.96,
+          "weighted_kappa": 0.19,
+          "mentor_higher": 0.32,
+          "mentor_lower": 0.23
+        },
+        "final": {
+          "rating_pairs": 47,
+          "exact_agreement": 0.6,
+          "within_one_level": 0.98,
+          "weighted_kappa": 0.21,
+          "mentor_higher": 0.34,
+          "mentor_lower": 0.06
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.03,
+          "unacceptable": 0.0,
+          "developing": 0.05,
+          "proficient": 0.8,
+          "exemplary": 0.15
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.02,
+          "unacceptable": 0.0,
+          "developing": 0.08,
+          "proficient": 0.52,
+          "exemplary": 0.4
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 12,
+        "low_n": false,
+        "specific_evidence": 0.25,
+        "vague": 0.42,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.25,
+        "no_level_evidence": 0.58,
+        "comments_with_level_and_score": 5,
+        "score_above_evidence": 0.0,
+        "on_construct": 0.92,
+        "often_confused_with": []
+      }
+    },
+    {
+      "code": "E",
+      "name": "Planning with Data",
+      "domain": "Instructional Planning",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 33,
+          "exact_agreement": 0.67,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.39,
+          "mentor_higher": 0.21,
+          "mentor_lower": 0.12
+        },
+        "final": {
+          "rating_pairs": 45,
+          "exact_agreement": 0.64,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.2,
+          "mentor_higher": 0.31,
+          "mentor_lower": 0.04
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.28,
+          "unacceptable": 0.0,
+          "developing": 0.03,
+          "proficient": 0.93,
+          "exemplary": 0.04
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.06,
+          "proficient": 0.61,
+          "exemplary": 0.33
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 15,
+        "low_n": false,
+        "specific_evidence": 0.47,
+        "vague": 0.27,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.2,
+        "no_level_evidence": 0.47,
+        "comments_with_level_and_score": 7,
+        "score_above_evidence": 0.29,
+        "on_construct": 1.0,
+        "often_confused_with": []
+      }
+    },
+    {
+      "code": "F",
+      "name": "Preparation",
+      "domain": "Instructional Planning",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 49,
+          "exact_agreement": 0.53,
+          "within_one_level": 0.98,
+          "weighted_kappa": 0.19,
+          "mentor_higher": 0.33,
+          "mentor_lower": 0.14
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.5,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.2,
+          "mentor_higher": 0.38,
+          "mentor_lower": 0.12
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.03,
+          "proficient": 0.7,
+          "exemplary": 0.27
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.06,
+          "proficient": 0.47,
+          "exemplary": 0.47
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 15,
+        "low_n": false,
+        "specific_evidence": 0.6,
+        "vague": 0.2,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.07,
+        "no_level_evidence": 0.2,
+        "comments_with_level_and_score": 12,
+        "score_above_evidence": 0.33,
+        "on_construct": 1.0,
+        "often_confused_with": []
+      }
+    },
+    {
+      "code": "G",
+      "name": "Instructional Dialogue",
+      "domain": "Instructional Delivery",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 48,
+          "exact_agreement": 0.5,
+          "within_one_level": 0.92,
+          "weighted_kappa": -0.12,
+          "mentor_higher": 0.31,
+          "mentor_lower": 0.19
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.52,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.11,
+          "mentor_higher": 0.34,
+          "mentor_lower": 0.14
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.1,
+          "proficient": 0.73,
+          "exemplary": 0.17
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.04,
+          "proficient": 0.61,
+          "exemplary": 0.35
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 17,
+        "low_n": false,
+        "specific_evidence": 0.35,
+        "vague": 0.18,
+        "restates_rubric": 0.12,
+        "names_next_step": 0.18,
+        "no_level_evidence": 0.29,
+        "comments_with_level_and_score": 12,
+        "score_above_evidence": 0.33,
+        "on_construct": 1.0,
+        "often_confused_with": []
+      }
+    },
+    {
+      "code": "H",
+      "name": "Higher Order Thinking for All Students",
+      "domain": "Instructional Delivery",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 48,
+          "exact_agreement": 0.48,
+          "within_one_level": 0.9,
+          "weighted_kappa": -0.04,
+          "mentor_higher": 0.38,
+          "mentor_lower": 0.15
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.56,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.2,
+          "mentor_higher": 0.36,
+          "mentor_lower": 0.08
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.01,
+          "unacceptable": 0.01,
+          "developing": 0.15,
+          "proficient": 0.79,
+          "exemplary": 0.05
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.08,
+          "proficient": 0.63,
+          "exemplary": 0.29
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 11,
+        "low_n": false,
+        "specific_evidence": 0.27,
+        "vague": 0.27,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.36,
+        "no_level_evidence": 0.64,
+        "comments_with_level_and_score": 4,
+        "score_above_evidence": 0.25,
+        "on_construct": 1.0,
+        "often_confused_with": []
+      }
+    },
+    {
+      "code": "I",
+      "name": "Differentiation",
+      "domain": "Instructional Delivery",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 37,
+          "exact_agreement": 0.41,
+          "within_one_level": 0.95,
+          "weighted_kappa": 0.09,
+          "mentor_higher": 0.32,
+          "mentor_lower": 0.27
+        },
+        "final": {
+          "rating_pairs": 49,
+          "exact_agreement": 0.55,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.11,
+          "mentor_higher": 0.35,
+          "mentor_lower": 0.1
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.06,
+          "unacceptable": 0.0,
+          "developing": 0.06,
+          "proficient": 0.87,
+          "exemplary": 0.08
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.1,
+          "proficient": 0.61,
+          "exemplary": 0.29
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 15,
+        "low_n": false,
+        "specific_evidence": 0.33,
+        "vague": 0.13,
+        "restates_rubric": 0.13,
+        "names_next_step": 0.07,
+        "no_level_evidence": 0.73,
+        "comments_with_level_and_score": 4,
+        "score_above_evidence": 0.0,
+        "on_construct": 0.8,
+        "often_confused_with": [
+          {
+            "code": "L",
+            "name": "Checking for Understanding During Instruction",
+            "comments": 1
+          },
+          {
+            "code": "R",
+            "name": "Cultural Competence",
+            "comments": 1
+          }
+        ]
+      }
+    },
+    {
+      "code": "J",
+      "name": "Instructional Technology",
+      "domain": "Instructional Delivery",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 35,
+          "exact_agreement": 0.57,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.36,
+          "mentor_higher": 0.31,
+          "mentor_lower": 0.11
+        },
+        "final": {
+          "rating_pairs": 47,
+          "exact_agreement": 0.53,
+          "within_one_level": 0.96,
+          "weighted_kappa": 0.16,
+          "mentor_higher": 0.38,
+          "mentor_lower": 0.09
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.11,
+          "unacceptable": 0.0,
+          "developing": 0.09,
+          "proficient": 0.74,
+          "exemplary": 0.16
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.04,
+          "proficient": 0.57,
+          "exemplary": 0.39
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 13,
+        "low_n": false,
+        "specific_evidence": 0.46,
+        "vague": 0.46,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.08,
+        "no_level_evidence": 0.85,
+        "comments_with_level_and_score": 1,
+        "score_above_evidence": 0.0,
+        "on_construct": 0.77,
+        "often_confused_with": [
+          {
+            "code": "G",
+            "name": "Instructional Dialogue",
+            "comments": 1
+          }
+        ]
+      }
+    },
+    {
+      "code": "K",
+      "name": "Assessment Strategies and Tools",
+      "domain": "Assessment",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 32,
+          "exact_agreement": 0.44,
+          "within_one_level": 0.97,
+          "weighted_kappa": 0.25,
+          "mentor_higher": 0.41,
+          "mentor_lower": 0.16
+        },
+        "final": {
+          "rating_pairs": 44,
+          "exact_agreement": 0.61,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.17,
+          "mentor_higher": 0.29,
+          "mentor_lower": 0.09
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.26,
+          "unacceptable": 0.0,
+          "developing": 0.04,
+          "proficient": 0.85,
+          "exemplary": 0.11
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.02,
+          "unacceptable": 0.0,
+          "developing": 0.06,
+          "proficient": 0.62,
+          "exemplary": 0.32
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 8,
+        "low_n": true,
+        "specific_evidence": 0.75,
+        "vague": 0.0,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.0,
+        "no_level_evidence": 0.5,
+        "comments_with_level_and_score": 4,
+        "score_above_evidence": 0.5,
+        "on_construct": 0.88,
+        "often_confused_with": [
+          {
+            "code": "D",
+            "name": "Lesson Plan Details",
+            "comments": 1
+          }
+        ]
+      }
+    },
+    {
+      "code": "L",
+      "name": "Checking for Understanding During Instruction",
+      "domain": "Assessment",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 49,
+          "exact_agreement": 0.53,
+          "within_one_level": 0.92,
+          "weighted_kappa": -0.0,
+          "mentor_higher": 0.22,
+          "mentor_lower": 0.24
+        },
+        "final": {
+          "rating_pairs": 49,
+          "exact_agreement": 0.57,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.18,
+          "mentor_higher": 0.33,
+          "mentor_lower": 0.1
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.04,
+          "proficient": 0.74,
+          "exemplary": 0.22
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.02,
+          "unacceptable": 0.0,
+          "developing": 0.06,
+          "proficient": 0.54,
+          "exemplary": 0.4
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 12,
+        "low_n": false,
+        "specific_evidence": 0.5,
+        "vague": 0.42,
+        "restates_rubric": 0.08,
+        "names_next_step": 0.25,
+        "no_level_evidence": 0.42,
+        "comments_with_level_and_score": 7,
+        "score_above_evidence": 0.14,
+        "on_construct": 0.92,
+        "often_confused_with": [
+          {
+            "code": "K",
+            "name": "Assessment Strategies and Tools",
+            "comments": 1
+          }
+        ]
+      }
+    },
+    {
+      "code": "M",
+      "name": "Quality of Feedback",
+      "domain": "Assessment",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 49,
+          "exact_agreement": 0.51,
+          "within_one_level": 0.86,
+          "weighted_kappa": -0.26,
+          "mentor_higher": 0.31,
+          "mentor_lower": 0.18
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.56,
+          "within_one_level": 0.98,
+          "weighted_kappa": 0.14,
+          "mentor_higher": 0.38,
+          "mentor_lower": 0.06
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.08,
+          "proficient": 0.8,
+          "exemplary": 0.11
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.08,
+          "proficient": 0.53,
+          "exemplary": 0.39
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 16,
+        "low_n": false,
+        "specific_evidence": 0.44,
+        "vague": 0.31,
+        "restates_rubric": 0.06,
+        "names_next_step": 0.44,
+        "no_level_evidence": 0.38,
+        "comments_with_level_and_score": 10,
+        "score_above_evidence": 0.1,
+        "on_construct": 0.94,
+        "often_confused_with": []
+      }
+    },
+    {
+      "code": "N",
+      "name": "Student Metacognition",
+      "domain": "Assessment",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 38,
+          "exact_agreement": 0.47,
+          "within_one_level": 0.97,
+          "weighted_kappa": 0.13,
+          "mentor_higher": 0.32,
+          "mentor_lower": 0.21
+        },
+        "final": {
+          "rating_pairs": 45,
+          "exact_agreement": 0.49,
+          "within_one_level": 0.96,
+          "weighted_kappa": 0.04,
+          "mentor_higher": 0.42,
+          "mentor_lower": 0.09
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.08,
+          "unacceptable": 0.0,
+          "developing": 0.17,
+          "proficient": 0.76,
+          "exemplary": 0.07
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.08,
+          "proficient": 0.65,
+          "exemplary": 0.28
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 16,
+        "low_n": false,
+        "specific_evidence": 0.31,
+        "vague": 0.19,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.31,
+        "no_level_evidence": 0.62,
+        "comments_with_level_and_score": 5,
+        "score_above_evidence": 0.4,
+        "on_construct": 0.81,
+        "often_confused_with": [
+          {
+            "code": "H",
+            "name": "Higher Order Thinking for All Students",
+            "comments": 1
+          },
+          {
+            "code": "L",
+            "name": "Checking for Understanding During Instruction",
+            "comments": 1
+          }
+        ]
+      }
+    },
+    {
+      "code": "O",
+      "name": "Teacher Affect",
+      "domain": "Learning Environment",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 49,
+          "exact_agreement": 0.43,
+          "within_one_level": 0.98,
+          "weighted_kappa": 0.04,
+          "mentor_higher": 0.41,
+          "mentor_lower": 0.16
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.54,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.22,
+          "mentor_higher": 0.32,
+          "mentor_lower": 0.14
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.01,
+          "proficient": 0.61,
+          "exemplary": 0.38
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.02,
+          "proficient": 0.43,
+          "exemplary": 0.55
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 13,
+        "low_n": false,
+        "specific_evidence": 0.46,
+        "vague": 0.54,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.0,
+        "no_level_evidence": 0.54,
+        "comments_with_level_and_score": 6,
+        "score_above_evidence": 0.17,
+        "on_construct": 0.92,
+        "often_confused_with": []
+      }
+    },
+    {
+      "code": "P",
+      "name": "Expectations for Student Behavior",
+      "domain": "Learning Environment",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 48,
+          "exact_agreement": 0.44,
+          "within_one_level": 0.94,
+          "weighted_kappa": 0.09,
+          "mentor_higher": 0.23,
+          "mentor_lower": 0.33
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.34,
+          "within_one_level": 0.96,
+          "weighted_kappa": -0.01,
+          "mentor_higher": 0.32,
+          "mentor_lower": 0.34
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.06,
+          "proficient": 0.7,
+          "exemplary": 0.24
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.18,
+          "proficient": 0.49,
+          "exemplary": 0.33
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 16,
+        "low_n": false,
+        "specific_evidence": 0.31,
+        "vague": 0.38,
+        "restates_rubric": 0.06,
+        "names_next_step": 0.0,
+        "no_level_evidence": 0.5,
+        "comments_with_level_and_score": 8,
+        "score_above_evidence": 0.38,
+        "on_construct": 0.75,
+        "often_confused_with": [
+          {
+            "code": "Q",
+            "name": "Behavior Management",
+            "comments": 4
+          }
+        ]
+      }
+    },
+    {
+      "code": "Q",
+      "name": "Behavior Management",
+      "domain": "Learning Environment",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 48,
+          "exact_agreement": 0.44,
+          "within_one_level": 0.92,
+          "weighted_kappa": 0.1,
+          "mentor_higher": 0.29,
+          "mentor_lower": 0.27
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.4,
+          "within_one_level": 0.98,
+          "weighted_kappa": 0.05,
+          "mentor_higher": 0.32,
+          "mentor_lower": 0.28
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.11,
+          "proficient": 0.71,
+          "exemplary": 0.17
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.16,
+          "proficient": 0.59,
+          "exemplary": 0.26
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 17,
+        "low_n": false,
+        "specific_evidence": 0.24,
+        "vague": 0.24,
+        "restates_rubric": 0.12,
+        "names_next_step": 0.12,
+        "no_level_evidence": 0.47,
+        "comments_with_level_and_score": 9,
+        "score_above_evidence": 0.44,
+        "on_construct": 0.88,
+        "often_confused_with": [
+          {
+            "code": "P",
+            "name": "Expectations for Student Behavior",
+            "comments": 1
+          }
+        ]
+      }
+    },
+    {
+      "code": "R",
+      "name": "Cultural Competence",
+      "domain": "Learning Environment",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 39,
+          "exact_agreement": 0.56,
+          "within_one_level": 0.92,
+          "weighted_kappa": 0.04,
+          "mentor_higher": 0.36,
+          "mentor_lower": 0.08
+        },
+        "final": {
+          "rating_pairs": 42,
+          "exact_agreement": 0.5,
+          "within_one_level": 0.93,
+          "weighted_kappa": 0.12,
+          "mentor_higher": 0.45,
+          "mentor_lower": 0.05
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.17,
+          "unacceptable": 0.0,
+          "developing": 0.09,
+          "proficient": 0.69,
+          "exemplary": 0.23
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.02,
+          "proficient": 0.51,
+          "exemplary": 0.47
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 7,
+        "low_n": true,
+        "specific_evidence": 0.0,
+        "vague": 0.71,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.0,
+        "no_level_evidence": 1.0,
+        "comments_with_level_and_score": 0,
+        "score_above_evidence": null,
+        "on_construct": 0.71,
+        "often_confused_with": [
+          {
+            "code": "O",
+            "name": "Teacher Affect",
+            "comments": 2
+          }
+        ]
+      }
+    },
+    {
+      "code": "S",
+      "name": "Professional Communication",
+      "domain": "Professionalism",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 42,
+          "exact_agreement": 0.48,
+          "within_one_level": 0.98,
+          "weighted_kappa": -0.08,
+          "mentor_higher": 0.41,
+          "mentor_lower": 0.12
+        },
+        "final": {
+          "rating_pairs": 45,
+          "exact_agreement": 0.58,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.31,
+          "mentor_higher": 0.27,
+          "mentor_lower": 0.16
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.17,
+          "unacceptable": 0.0,
+          "developing": 0.04,
+          "proficient": 0.62,
+          "exemplary": 0.35
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.04,
+          "proficient": 0.45,
+          "exemplary": 0.51
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 12,
+        "low_n": false,
+        "specific_evidence": 0.25,
+        "vague": 0.5,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.0,
+        "no_level_evidence": 0.83,
+        "comments_with_level_and_score": 2,
+        "score_above_evidence": 0.5,
+        "on_construct": 0.83,
+        "often_confused_with": [
+          {
+            "code": "T",
+            "name": "Collaboration and Collegiality",
+            "comments": 2
+          }
+        ]
+      }
+    },
+    {
+      "code": "T",
+      "name": "Collaboration and Collegiality",
+      "domain": "Professionalism",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 37,
+          "exact_agreement": 0.49,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.0,
+          "mentor_higher": 0.38,
+          "mentor_lower": 0.14
+        },
+        "final": {
+          "rating_pairs": 45,
+          "exact_agreement": 0.53,
+          "within_one_level": 0.98,
+          "weighted_kappa": 0.23,
+          "mentor_higher": 0.31,
+          "mentor_lower": 0.16
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.08,
+          "unacceptable": 0.01,
+          "developing": 0.0,
+          "proficient": 0.61,
+          "exemplary": 0.38
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.06,
+          "proficient": 0.41,
+          "exemplary": 0.53
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 9,
+        "low_n": true,
+        "specific_evidence": 0.33,
+        "vague": 0.56,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.0,
+        "no_level_evidence": 0.78,
+        "comments_with_level_and_score": 2,
+        "score_above_evidence": 0.0,
+        "on_construct": 0.78,
+        "often_confused_with": [
+          {
+            "code": "S",
+            "name": "Professional Communication",
+            "comments": 1
+          }
+        ]
+      }
+    },
+    {
+      "code": "U",
+      "name": "Legal and Ethical Guidelines",
+      "domain": "Professionalism",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 39,
+          "exact_agreement": 0.41,
+          "within_one_level": 1.0,
+          "weighted_kappa": -0.05,
+          "mentor_higher": 0.46,
+          "mentor_lower": 0.13
+        },
+        "final": {
+          "rating_pairs": 43,
+          "exact_agreement": 0.49,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.12,
+          "mentor_higher": 0.4,
+          "mentor_lower": 0.12
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.15,
+          "unacceptable": 0.0,
+          "developing": 0.0,
+          "proficient": 0.62,
+          "exemplary": 0.38
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.02,
+          "unacceptable": 0.0,
+          "developing": 0.02,
+          "proficient": 0.34,
+          "exemplary": 0.64
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 8,
+        "low_n": true,
+        "specific_evidence": 0.12,
+        "vague": 0.5,
+        "restates_rubric": 0.25,
+        "names_next_step": 0.0,
+        "no_level_evidence": 0.62,
+        "comments_with_level_and_score": 3,
+        "score_above_evidence": 0.33,
+        "on_construct": 1.0,
+        "often_confused_with": []
+      }
+    },
+    {
+      "code": "V",
+      "name": "Goal Setting",
+      "domain": "Professionalism",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 49,
+          "exact_agreement": 0.55,
+          "within_one_level": 0.98,
+          "weighted_kappa": 0.09,
+          "mentor_higher": 0.31,
+          "mentor_lower": 0.14
+        },
+        "final": {
+          "rating_pairs": 49,
+          "exact_agreement": 0.49,
+          "within_one_level": 0.98,
+          "weighted_kappa": 0.22,
+          "mentor_higher": 0.31,
+          "mentor_lower": 0.2
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.01,
+          "unacceptable": 0.0,
+          "developing": 0.06,
+          "proficient": 0.68,
+          "exemplary": 0.26
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.1,
+          "proficient": 0.43,
+          "exemplary": 0.47
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 9,
+        "low_n": true,
+        "specific_evidence": 0.67,
+        "vague": 0.33,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.0,
+        "no_level_evidence": 0.44,
+        "comments_with_level_and_score": 5,
+        "score_above_evidence": 0.0,
+        "on_construct": 0.78,
+        "often_confused_with": []
+      }
+    },
+    {
+      "code": "W",
+      "name": "Personal Reflection",
+      "domain": "Professionalism",
+      "coach_mentor_agreement": {
+        "midterm": {
+          "rating_pairs": 47,
+          "exact_agreement": 0.49,
+          "within_one_level": 0.98,
+          "weighted_kappa": -0.05,
+          "mentor_higher": 0.32,
+          "mentor_lower": 0.19
+        },
+        "final": {
+          "rating_pairs": 50,
+          "exact_agreement": 0.6,
+          "within_one_level": 1.0,
+          "weighted_kappa": 0.38,
+          "mentor_higher": 0.3,
+          "mentor_lower": 0.1
+        }
+      },
+      "final_rating_distribution": {
+        "coach": {
+          "ratings": 97,
+          "no_opportunity": 0.01,
+          "unacceptable": 0.0,
+          "developing": 0.05,
+          "proficient": 0.65,
+          "exemplary": 0.3
+        },
+        "mentor": {
+          "ratings": 51,
+          "no_opportunity": 0.0,
+          "unacceptable": 0.0,
+          "developing": 0.02,
+          "proficient": 0.49,
+          "exemplary": 0.49
+        }
+      },
+      "comment_patterns": {
+        "coded_comments": 13,
+        "low_n": false,
+        "specific_evidence": 0.31,
+        "vague": 0.69,
+        "restates_rubric": 0.0,
+        "names_next_step": 0.15,
+        "no_level_evidence": 0.92,
+        "comments_with_level_and_score": 1,
+        "score_above_evidence": 0.0,
+        "on_construct": 0.23,
+        "often_confused_with": [
+          {
+            "code": "V",
+            "name": "Goal Setting",
+            "comments": 7
+          },
+          {
+            "code": "S",
+            "name": "Professional Communication",
+            "comments": 1
+          },
+          {
+            "code": "I",
+            "name": "Differentiation",
+            "comments": 1
+          }
+        ]
+      }
+    }
+  ]
+}

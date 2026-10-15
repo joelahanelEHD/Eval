@@ -26,8 +26,10 @@ optionally note their evidence, then see the anchor rating with:
 | | P.3 Density lab, day one | Gr 8 science, Internship I final | Vignette | Developing |
 | | P.4 Community agreements | Gr 11 English, Internship II final | Artifact + observation | Exemplary |
 
-Items G and P were chosen because exact mentor–coach agreement on them was
-near zero in the 2026 inter-rater reliability analysis.
+Items G and P were chosen because mentor–coach agreement on them was no better
+than chance in the 2025–26 inter-rater reliability analysis: weighted kappa of
+−0.12 to 0.11 for G and −0.01 to 0.09 for P. Exact agreement was 50–52% for G
+and 34–44% for P, the lowest of any item. See `data/item_profiles_2025_26.json`.
 
 **Anchor ratings are drafts and need faculty review before mentors use them.**
 
@@ -45,3 +47,25 @@ copy an existing item object and fill in the following fields:
   an optional `caution`, and a sample `comment`
 
 Each new item gets its own tab automatically.
+
+## Data for building modules
+
+`data/` holds inputs for writing new items, scenarios, cautions, and comment
+exercises. It contains **aggregate statistics and invented examples only**.
+No real assessor comments, names, or candidate records are in this repository.
+See `data/README.md` for definitions and caveats.
+
+- `data/item_profiles_2025_26.json`: one record per item (A–W) with
+  mentor–coach agreement by term, final-rating distributions, and comment
+  patterns (how often comments carry evidence, how often scores sit above the
+  evidence, and which items comments get confused with).
+- `data/comment_patterns.json`: invented example comments for a
+  "Which comment supports this rating?" exercise, for items G, P, Q, A, and N.
+
+Suggested next items, ranked from the 2025–26 data:
+
+| Item | Exact agreement | Weighted kappa (mid / final) | Why |
+| --- | --- | --- | --- |
+| Q. Behavior Management | 42% | 0.10 / 0.05 | Second-lowest agreement; often confused with P, so it pairs well with the existing P scenarios |
+| A. Content Understanding | 50% | 0.01 / −0.05 | Agreement at chance; most comments are vague and many scores sit above the written evidence |
+| N. Student Metacognition | 48% | 0.13 / 0.04 | Low agreement; scores often above the written evidence |
