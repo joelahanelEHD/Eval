@@ -67,5 +67,5 @@ Suggested next items, ranked from the 2025–26 data:
 | Item | Exact agreement | Weighted kappa (mid / final) | Why |
 | --- | --- | --- | --- |
 | Q. Behavior Management | 42% | 0.10 / 0.05 | Second-lowest agreement; often confused with P, so it pairs well with the existing P scenarios |
-| A. Content Understanding | 50% | 0.01 / −0.05 | Agreement at chance; most comments are vague and many scores sit above the written evidence |
-| N. Student Metacognition | 48% | 0.13 / 0.04 | Low agreement; scores often above the written evidence |
+| A. Content Understanding | 50% | 0.01 / −0.05 | Agreement at chance; 30% of comments are evaluation only, and 37% of scores sit above what the comment says |
+| N. Student Metacognition | 48% | 0.13 / 0.04 | Low agreement; 57% of comments give no level evidence |

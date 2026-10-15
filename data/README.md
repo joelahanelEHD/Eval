@@ -32,7 +32,7 @@ Each item record has:
 
 - `coach_mentor_agreement.midterm` / `.final`: rating pairs, exact agreement, within one level, weighted kappa (quadratic), and the share of pairs where the mentor rated higher or lower.
 - `final_rating_distribution.coach` / `.mentor`: share of final ratings at each level, and the share marked "no opportunity to observe".
-- `comment_patterns`: from 7–17 coded comments per item. Shares of comments with specific evidence, vague, restating the rubric, naming a next step, or giving no level evidence. Among comments with both a level and a score, the share where the score sits above the evidence. The on-construct share, and items the comments were often really about (`often_confused_with`).
+- `comment_patterns`: from all coach and mentor comments on the item (41–111 per item; codebook v1.2). Shares of comments that say what the candidate does, that are evaluation only, that restate the rubric, that name a next step, or that give no level evidence. Among comments with both a signaled level and a score, the share where the score sits above or below the level the words convey. The on-construct share, and items comments were often really about (`often_confused_with`, from the 300-comment process test).
 
 ### `comment_patterns.json`
 
@@ -45,7 +45,9 @@ supports (or `null`), a one-line explanation, and a revision tip for the item.
 - **Ratings** are rounded down to the four rubric levels (2.5 → Developing, 3.5 → Proficient).
 - **Exact agreement** is the share of coach–mentor pairs giving the same level to the same candidate, term, and item.
 - **Weighted kappa** corrects agreement for chance; 0 means chance agreement, 1 perfect.
-- **Score above evidence** means the comment's described evidence supports a lower level than the score given.
+- **Signaled level** is the level a rater's own words convey ("no concerns" reads as Proficient; "an area of great strength" as Exemplary).
+- **Score above signal** means the score is higher than the level the comment's words convey.
+- **Coding reliability.** Comments were coded by Claude and checked against a human reviewer on two blind samples of 20 (pooled κ .65 and .57, below the .70 standard). Treat comment shares as directional.
 
 ## Caveats
 
